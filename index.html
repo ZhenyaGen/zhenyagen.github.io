@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══ РЕДАКТИРОВАТЬ: заголовок вкладки и описание для поиска/соцсетей ═══ -->
+<title>Евгений — автоматизация бизнес-процессов и интеграции</title>
+<meta name="description" content="Разрабатываю автоматизированные решения: интеграции между системами, внутренние сервисы, боты и отчётность. Убираю ручную рутину из процессов компании.">
+<meta name="author" content="Евгений">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Евгений — автоматизация бизнес-процессов и интеграции">
+<meta property="og:description" content="Превращаю ручную рутину в процессы, которые работают сами. Интеграции, внутренние сервисы, боты, отчётность.">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#0b0e14">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0e14'/><path d='M28 68 L50 30 L72 68' stroke='%235eead4' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+<style>
+/* ────────────────────────────────────────────────
+   Токены темы. Светлая тема — базовая, тёмная — по
+   системной настройке пользователя.
+   ──────────────────────────────────────────────── */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f5f7fa;
+  --bg-card:#ffffff;
+  --text:#10151f;
+  --text-dim:#525f75;
+  --line:#e2e8f0;
+  --accent:#0d9488;
+  --accent-soft:#0d948814;
+  --accent-text:#0f766e;
+  --shadow:0 1px 2px #0f172a0a, 0 8px 24px -12px #0f172a1f;
+  --radius:16px;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0e14;
+    --bg-soft:#0f1420;
+    --bg-card:#121826;
+    --text:#e8edf7;
+    --text-dim:#9aa8c0;
+    --line:#1f2937;
+    --accent:#5eead4;
+    --accent-soft:#5eead414;
+    --accent-text:#5eead4;
+    --shadow:0 1px 2px #0006, 0 12px 32px -16px #000a;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.2;letter-spacing:-0.02em;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.section{padding:72px 0;border-top:1px solid var(--line)}
+.section-head{margin-bottom:36px;max-width:60ch}
+.eyebrow{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-text);margin-bottom:14px;
+}
+.section h2{font-size:clamp(24px,4vw,34px);margin-bottom:12px}
+.lede{color:var(--text-dim);font-size:17px}
+
+/* ── Шапка ── */
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:var(--bg); /* запасной вариант для браузеров без color-mix */
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:24px;height:60px}
+.brand{font-weight:800;letter-spacing:-.02em;color:var(--text);font-size:16px}
+.brand:hover{text-decoration:none}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.nav-links a{color:var(--text-dim)}
+.nav-links a:hover{color:var(--text);text-decoration:none}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* ── Первый экран ── */
+.hero{position:relative;padding:88px 0 76px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-40% 30% auto -10%;height:520px;
+  background:radial-gradient(closest-side, var(--accent) , transparent 70%);
+  opacity:.13;pointer-events:none;
+}
+.hero-in{position:relative}
+.hero h1{font-size:clamp(32px,6.2vw,54px);margin-bottom:20px;max-width:16ch}
+.hero .sub{font-size:clamp(17px,2.2vw,20px);color:var(--text-dim);max-width:52ch}
+.hero .sub strong{color:var(--text);font-weight:600}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;
+  border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#04121a;box-shadow:var(--shadow)}
+@media (prefers-color-scheme: light){.btn-primary{color:#fff}}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--bg-card)}
+
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.badge{
+  font-size:13px;color:var(--text-dim);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--bg-soft);
+}
+
+/* ── Карточки ── */
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+.card{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);
+}
+.card h3{font-size:18px;margin-bottom:10px}
+.card p{color:var(--text-dim);font-size:15px}
+.card .ico{
+  width:38px;height:38px;border-radius:11px;background:var(--accent-soft);
+  display:grid;place-items:center;margin-bottom:16px;font-size:19px;
+}
+.card ul li{
+  color:var(--text-dim);font-size:15px;padding-left:18px;position:relative;margin-top:8px;
+}
+.card ul li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* ── Процесс ── */
+.steps{counter-reset:step;display:grid;gap:2px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line)}
+.step{background:var(--bg-card);padding:24px;display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start}
+.step .n{
+  counter-increment:step;width:34px;height:34px;border-radius:10px;
+  background:var(--accent-soft);color:var(--accent-text);
+  display:grid;place-items:center;font-weight:700;font-size:14px;
+}
+.step .n::before{content:counter(step)}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{color:var(--text-dim);font-size:15px}
+
+/* ── Стек ── */
+.stack{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.stack h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-text);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;padding:6px 12px;border-radius:9px;background:var(--bg-soft);border:1px solid var(--line);color:var(--text-dim)}
+
+/* ── Оффер ── */
+.offer{
+  border:1px solid var(--line);border-radius:24px;padding:clamp(28px,5vw,52px);
+  background:
+    radial-gradient(120% 130% at 0% 0%, var(--accent-soft), transparent 60%),
+    var(--bg-card);
+  box-shadow:var(--shadow);
+}
+.offer h2{font-size:clamp(23px,3.6vw,32px);margin-bottom:14px;max-width:22ch}
+.offer p{color:var(--text-dim);max-width:60ch;font-size:17px}
+.offer .small{font-size:14px;margin-top:18px}
+
+/* ── Контакты ── */
+.contacts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.contact{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;
+  border:1px solid var(--line);border-radius:14px;background:var(--bg-card);
+  color:var(--text);transition:border-color .15s ease, transform .15s ease;
+}
+.contact:hover{text-decoration:none;border-color:var(--accent);transform:translateY(-1px)}
+.contact .ico{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;font-size:17px;flex:none}
+.contact b{display:block;font-size:15px;font-weight:600}
+.contact span{display:block;font-size:13px;color:var(--text-dim);word-break:break-all}
+
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--text-dim);font-size:14px}
+.foot-in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <!-- ═══ РЕДАКТИРОВАТЬ: имя / логотип ═══ -->
+    <a class="brand" href="#top">Евгений</a>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как работаю</a>
+      <a href="#stack">Стек</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ ПЕРВЫЙ ЭКРАН ══════════════ -->
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <span class="eyebrow">Автоматизация · Интеграции · Внутренние сервисы</span>
+    <h1>Ваша команда делает руками то, что должно работать само</h1>
+    <p class="sub">
+      Я разрабатываю автоматизированные решения — и внутри компании, где работаю,
+      и для внешних заказчиков. Беру процесс, который живёт в таблицах, переписках
+      и копипасте, и превращаю его в сервис, который <strong>работает без человека</strong>
+      и не ломается на второй неделе.
+    </p>
+
+    <div class="cta-row">
+      <!-- ═══ РЕДАКТИРОВАТЬ: основной канал связи ═══ -->
+      <a class="btn btn-primary" href="mailto:teugenea@gmail.com?subject=Автоматизация%20процесса">Обсудить задачу</a>
+      <a class="btn btn-ghost" href="#offer">Бесплатный разбор процесса →</a>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Работаю с внутренними и внешними проектами</span>
+      <span class="badge">От идеи до продакшена</span>
+      <span class="badge">Внедрение, а не «сдал и забыл»</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ УСЛУГИ ══════════════ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Чем я занимаюсь</span>
+      <h2>Убираю ручную работу из процессов</h2>
+      <p class="lede">
+        Не «внедряю модную технологию», а закрываю конкретную боль: где-то теряются часы,
+        где-то данные расходятся между системами, где-то отчёт собирается вручную каждую пятницу.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="ico">🔗</div>
+        <h3>Интеграции между системами</h3>
+        <p>Системы перестают жить отдельными островами: данные ходят между ними сами, без выгрузок в Excel и ручного переноса.</p>
+        <ul>
+          <li>Обмен данными между сервисами</li>
+          <li>Синхронизация справочников и статусов</li>
+          <li>Устойчивость к сбоям и повторам</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="ico">⚙️</div>
+        <h3>Автоматизация процессов</h3>
+        <p>Рутинная цепочка действий превращается в сценарий, который запускается сам — по расписанию, событию или заявке.</p>
+        <ul>
+          <li>Регулярные операции по расписанию</li>
+          <li>Обработка заявок и документов</li>
+          <li>Уведомления ответственным</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="ico">🧩</div>
+        <h3>Внутренние сервисы и инструменты</h3>
+        <p>Небольшие приложения под конкретную команду: там, где коробочное решение избыточно, а таблица уже не тянет.</p>
+        <ul>
+          <li>Панели и рабочие интерфейсы</li>
+          <li>Инструменты под конкретный отдел</li>
+          <li>Разграничение доступа</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="ico">🤖</div>
+        <h3>Боты и ассистенты</h3>
+        <p>Точка входа в процесс там, где сотрудники уже сидят: приём заявок, статусы, подсказки, ответы на типовые вопросы.</p>
+      </article>
+
+      <article class="card">
+        <div class="ico">📊</div>
+        <h3>Отчётность и данные</h3>
+        <p>Отчёт, который собирается сам и всегда актуален, вместо ручной сборки к совещанию.</p>
+      </article>
+
+      <article class="card">
+        <div class="ico">🛠️</div>
+        <h3>Поддержка и развитие</h3>
+        <p>Решение не бросается после запуска: сопровождаю, дорабатываю и передаю так, чтобы им пользовались.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ПРОЦЕСС ══════════════ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Как я работаю</span>
+      <h2>Понятный путь от разговора до результата</h2>
+      <p class="lede">Без месяцев обследования и стостраничных документов. Первая рабочая версия — быстро, дальше по факту использования.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <div>
+          <h3>Разбираем процесс</h3>
+          <p>Смотрим, как задача решается сейчас: кто, что и где делает руками, сколько это стоит времени и где чаще всего ломается.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div>
+          <h3>Считаем, что даст автоматизация</h3>
+          <p>Честно: какие шаги можно убрать, какой выигрыш реально получится и что автоматизировать не стоит вовсе.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div>
+          <h3>Собираю рабочую версию</h3>
+          <p>Сначала — самый болезненный участок. Вы видите результат на своих данных, а не презентацию будущего решения.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <div>
+          <h3>Внедряю и передаю</h3>
+          <p>Запуск, обучение команды, документация. Дальше — поддержка и развитие по мере того, как процесс меняется.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ СТЕК ══════════════
+     РЕДАКТИРОВАТЬ: оставьте только то, чем реально пользуетесь,
+     остальное удалите и добавьте своё.
+     ══════════════════════════════════ -->
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Инструменты</span>
+      <h2>Стек подбираю под задачу, а не наоборот</h2>
+      <p class="lede">Решение должно быть простым в поддержке — в том числе без меня.</p>
+    </div>
+
+    <div class="stack">
+      <div>
+        <h3>Разработка</h3>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">JavaScript / TypeScript</span>
+          <span class="chip">SQL</span>
+          <span class="chip">REST API</span>
+          <span class="chip">Bash</span>
+        </div>
+      </div>
+      <div>
+        <h3>Автоматизация</h3>
+        <div class="chips">
+          <span class="chip">Интеграции по API</span>
+          <span class="chip">Планировщики задач</span>
+          <span class="chip">Вебхуки</span>
+          <span class="chip">Парсинг и обработка данных</span>
+          <span class="chip">Telegram-боты</span>
+        </div>
+      </div>
+      <div>
+        <h3>Данные</h3>
+        <div class="chips">
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Работа с Excel / CSV</span>
+          <span class="chip">Отчёты и дашборды</span>
+        </div>
+      </div>
+      <div>
+        <h3>Инфраструктура</h3>
+        <div class="chips">
+          <span class="chip">Git</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ОБО МНЕ ══════════════ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div>
+        <span class="eyebrow">Коротко обо мне</span>
+        <h2 style="margin-bottom:16px">Разработчик, который думает про процесс, а не только про код</h2>
+        <p class="lede" style="margin-bottom:14px">
+          Я разрабатываю автоматизированные решения — в организации, где работаю,
+          и параллельно для внешних заказчиков. Первое даёт понимание того, как всё
+          устроено изнутри: почему процесс выглядит нелогично, кто на самом деле
+          принимает решения и что будет саботироваться командой. Второе — насмотренность
+          на разные компании и подходы.
+        </p>
+        <p class="lede">
+          Из этого получается главное: я не сдаю решение, которым никто не пользуется.
+          Автоматизация имеет смысл только тогда, когда после запуска люди перестают
+          делать работу руками — по этому критерию и меряю результат.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Что для вас это значит</h3>
+        <ul>
+          <li>Говорю на языке задачи, а не терминов</li>
+          <li>Сначала спрашиваю «зачем», потом пишу код</li>
+          <li>Скажу прямо, если автоматизация не окупится</li>
+          <li>Делаю так, чтобы решение поддерживалось дальше</li>
+          <li>Довожу до реального использования, а не до сдачи</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ОФФЕР («удочка») ══════════════ -->
+<section class="section" id="offer">
+  <div class="wrap">
+    <div class="offer">
+      <span class="eyebrow">Бесплатно</span>
+      <h2>Разберу один ваш процесс за 20 минут</h2>
+      <p>
+        Назовите задачу, которая съедает у команды больше всего времени. Я разберу её
+        по шагам и скажу конкретно: что здесь можно автоматизировать, какой выигрыш
+        получится и с чего дешевле всего начать. Без обязательств — даже если дальше
+        вы сделаете это сами или своими силами.
+      </p>
+      <div class="cta-row">
+        <!-- ═══ РЕДАКТИРОВАТЬ: канал связи ═══ -->
+        <a class="btn btn-primary" href="mailto:teugenea@gmail.com?subject=Разбор%20процесса&body=Опишите%20коротко%20процесс%2C%20который%20хотите%20разобрать%3A">Написать и получить разбор</a>
+      </div>
+      <p class="small">Отвечаю в течение рабочего дня.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ КОНТАКТЫ ══════════════
+     РЕДАКТИРОВАТЬ: раскомментируйте нужные блоки и подставьте ссылки.
+     ═══════════════════════════════════════ -->
+<section class="section" id="contacts">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Контакты</span>
+      <h2>Давайте познакомимся</h2>
+      <p class="lede">Напишите в удобный канал — обсудим задачу без формальностей.</p>
+    </div>
+
+    <div class="contacts">
+      <a class="contact" href="mailto:teugenea@gmail.com">
+        <span class="ico">✉️</span>
+        <span><b>E-mail</b><span>teugenea@gmail.com</span></span>
+      </a>
+
+      <a class="contact" href="https://github.com/ZhenyaGen" target="_blank" rel="noopener">
+        <span class="ico">💻</span>
+        <span><b>GitHub</b><span>github.com/ZhenyaGen</span></span>
+      </a>
+
+      <!-- Telegram
+      <a class="contact" href="https://t.me/USERNAME" target="_blank" rel="noopener">
+        <span class="ico">✈️</span>
+        <span><b>Telegram</b><span>@USERNAME</span></span>
+      </a>
+      -->
+
+      <!-- LinkedIn
+      <a class="contact" href="https://linkedin.com/in/USERNAME" target="_blank" rel="noopener">
+        <span class="ico">in</span>
+        <span><b>LinkedIn</b><span>linkedin.com/in/USERNAME</span></span>
+      </a>
+      -->
+
+      <!-- Телефон / WhatsApp
+      <a class="contact" href="tel:+70000000000">
+        <span class="ico">📞</span>
+        <span><b>Телефон</b><span>+7 000 000-00-00</span></span>
+      </a>
+      -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© <span id="year">2026</span> Евгений — автоматизация процессов и интеграции</span>
+    <a href="#top">Наверх ↑</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
