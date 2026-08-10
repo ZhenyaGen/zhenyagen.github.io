@@ -9,17 +9,26 @@
 
 **https://zhenyagen.github.io/ZhenyaGen/**
 
-## Как включить публикацию (делается один раз)
+Если переименовать репозиторий в `zhenyagen.github.io`, адрес станет короче:
+`https://zhenyagen.github.io/` — workflow при этом менять не нужно.
 
-1. Откройте **Settings → Pages** в этом репозитории.
-2. В блоке **Build and deployment → Source** выберите **GitHub Actions**.
-3. Откройте вкладку **Actions**, выберите workflow *Deploy site to GitHub Pages*
-   и нажмите **Run workflow** (либо просто сделайте любой коммит — публикация
-   запустится сама).
+## Шаг, который нужно сделать руками (один раз)
+
+**Откройте [Settings → Pages](../../settings/pages) и в блоке
+*Build and deployment → Source* выберите `GitHub Actions`.**
+
+Пока это не сделано, деплой падает с ошибкой
+`Create Pages site failed: Resource not accessible by integration`. Это не
+проблема workflow: токен GitHub Actions по соображениям безопасности не имеет
+права сам включать Pages в репозитории — включить их может только владелец.
+
+После включения зайдите во вкладку **Actions**, откройте workflow
+*Deploy site to GitHub Pages* и нажмите **Run workflow** (либо просто сделайте
+любой коммит — публикация запустится сама и займёт около минуты).
 
 Если деплой падает с ошибкой про `github-pages environment` и ветку — в
 **Settings → Environments → github-pages → Deployment branches** разрешите
-нужную ветку (или слейте изменения в ветку по умолчанию).
+нужную ветку.
 
 ## Как менять содержимое
 
