@@ -27,7 +27,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # enablement: включает Pages в репозитории автоматически,
+      # если это ещё не сделано вручную в Settings → Pages.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # Сайт статический: публикуем содержимое репозитория как есть.
       - uses: actions/upload-pages-artifact@v3
