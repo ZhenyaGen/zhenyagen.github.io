@@ -45,13 +45,11 @@ a{color:inherit}
 
 /* --- первый экран --- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 72px}
-.hero .poster{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;z-index:0;
-}
 .hero .veil{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg,rgba(11,18,32,.96) 0%,rgba(11,18,32,.86) 46%,rgba(11,18,32,.55) 100%);
+  background:
+    radial-gradient(70vw 70vw at 88% 12%, rgba(255,107,44,.16), transparent 60%),
+    radial-gradient(80vw 80vw at -10% 90%, rgba(127,168,217,.14), transparent 62%);
 }
 .hero .wrap{position:relative;z-index:2}
 .eyebrow{
@@ -138,10 +136,12 @@ h3{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:10px}
   display:block;width:100%;padding:0;border:0;background:none;
   cursor:pointer;perspective:1400px;font:inherit;color:inherit;
 }
-.flip-inner{position:relative;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+/* display:block обязателен: строчный элемент не принимает transform,
+   из-за этого переворот не срабатывал */
+.flip-inner{display:block;position:relative;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
 .flip img{width:100%;border-radius:10px;display:block;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.flip .back{position:absolute;top:0;left:0;height:100%;transform:rotateY(180deg)}
+.flip .back{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:rotateY(180deg)}
 .flip:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:12px}
 .flip-hint{
   display:inline-flex;align-items:center;gap:7px;
@@ -208,7 +208,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <main>
 
 <section class="hero" id="hero">
-  <img class="poster" id="heroPoster" src="img/hero-poster.jpg" alt="">
   <div class="veil"></div>
   <div class="wrap">
     <p class="eyebrow">Автоматизация · нейросети · визуал</p>
