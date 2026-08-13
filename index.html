@@ -128,6 +128,27 @@ h3{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:10px}
   font-size:clamp(19px,2.4vw,24px);line-height:1.45;font-weight:500;
 }
 
+/* --- образование --- */
+.edu{margin-top:72px;border-top:1px solid var(--line);padding-top:34px}
+.edu-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.edu-list li{
+  display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:20px 22px;transition:border-color .2s ease;
+}
+.edu-list li:hover{border-color:var(--accent)}
+.edu-year{
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);padding-top:3px;
+}
+.edu-list b{display:block;font-weight:600;font-size:16px;margin-bottom:5px}
+.edu-list span span,.edu-list li>span:last-child{color:var(--muted);font-size:15px;line-height:1.5}
+@media(max-width:760px){
+  .edu-list{grid-template-columns:1fr}
+  .edu-list li{grid-template-columns:1fr;gap:6px}
+  .edu-year{padding-top:0}
+}
+
 /* --- лось --- */
 .moose{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .moose .inner{display:grid;grid-template-columns:1fr .8fr;gap:56px;align-items:center}
@@ -277,6 +298,38 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <p class="rise">Тринадцать лет назад я танцевал в «Больших танцах» на телеканале «Россия». Потом четыре года выходил на паркет в костюме лося. Потом сидел за режиссёрским пультом на Кубке России. Потом резал овощи и дорос до су-шефа. Сейчас — ведущий специалист по оптимизации процессов и тренер по нейросетям.</p>
       <p class="turn rise">Смысл не в том, что я много где был. Смысл в том, что каждый раз я заходил с нуля и за год-два доходил до уровня, за который платят.</p>
       <p class="rise">Ваш бизнес — просто следующая сфера, в которую я захожу.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="edu">
+      <p class="label rise">Образование</p>
+      <ul class="edu-list">
+        <li class="rise">
+          <span class="edu-year">2017</span>
+          <span><b>Учитель информатики и физики</b>Педуниверситет имени Козьмы Минина, Нижний Новгород. Диплом — как научить школьников искать информацию в сети</span>
+        </li>
+        <li class="rise">
+          <span class="edu-year">2011</span>
+          <span><b>Курсы программирования</b>Университет имени Лобачевского, Нижний Новгород</span>
+        </li>
+        <li class="rise">
+          <span class="edu-year">2018</span>
+          <span><b>Режиссура трансляций</b>Краснодар</span>
+        </li>
+        <li class="rise">
+          <span class="edu-year">2024</span>
+          <span><b>Корпоративный университет работодателя</b>Основы ИИ, принятие решений, персональное лидерство, сторителлинг, школа коммуникаций</span>
+        </li>
+        <li class="rise">
+          <span class="edu-year">Минцифры</span>
+          <span><b>ИТ-компетенция HTML, продвинутый уровень</b>Национальная система оценки ИТ-компетенций</span>
+        </li>
+        <li class="rise">
+          <span class="edu-year">Диплом</span>
+          <span><b>Фитнес-тренер</b>Университет «СтартФит», с отличием</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
