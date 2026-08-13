@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheckINN — Политика конфиденциальности / Privacy Policy</title>
+<style>
+  :root { --blue:#2563eb; --text:#1e293b; --gray:#64748b; --line:#e2e8f0; --bg:#f8fafc; }
+  * { box-sizing:border-box; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text); background:var(--bg); margin:0; line-height:1.65;
+  }
+  .wrap { max-width:820px; margin:0 auto; padding:32px 20px 80px; background:#fff;
+          box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  header { display:flex; align-items:center; gap:14px; border-bottom:2px solid var(--line);
+           padding-bottom:20px; margin-bottom:8px; }
+  .logo { width:48px; height:48px; background:var(--blue); border-radius:12px;
+          display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .logo svg { width:30px; height:30px; }
+  h1 { font-size:24px; margin:0; }
+  .sub { color:var(--gray); font-size:14px; margin-top:2px; }
+  .lang-switch { margin:18px 0 28px; }
+  .lang-switch a { display:inline-block; padding:6px 14px; border:1px solid var(--line);
+                   border-radius:8px; text-decoration:none; color:var(--blue); font-size:14px;
+                   margin-right:8px; }
+  h2 { font-size:20px; margin-top:34px; padding-top:10px; }
+  h3 { font-size:16px; margin-top:22px; color:var(--text); }
+  p, li { font-size:15px; }
+  .meta { color:var(--gray); font-size:13px; }
+  .box { background:var(--bg); border:1px solid var(--line); border-radius:10px;
+         padding:14px 18px; margin:16px 0; }
+  .ok { color:#15803d; font-weight:600; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--gray); font-weight:600; }
+  code { background:#eef2ff; color:#3730a3; padding:1px 6px; border-radius:4px; font-size:13px; }
+  hr.big { border:none; border-top:2px solid var(--line); margin:56px 0; }
+  footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--gray); font-size:13px; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 12.5 L9.5 18 L20 6.5" stroke="#fff" stroke-width="3.2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <h1>CheckINN</h1>
+      <div class="sub">Проверка контрагента по ИНН · Counterparty check by INN</div>
+    </div>
+  </header>
+
+  <div class="lang-switch">
+    <a href="#ru">Русский</a>
+    <a href="#en">English</a>
+  </div>
+
+  <!-- ============ РУССКИЙ ============ -->
+  <section id="ru">
+    <h2>Политика конфиденциальности</h2>
+    <p class="meta">Расширение для браузера «CheckINN — проверка контрагента по ИНН».<br>
+    Последнее обновление: 13 августа 2026 г.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">Коротко:</span> расширение работает
+      полностью локально. У него нет серверов, нет внешних API, нет телеметрии
+      и аналитики. Никакие ваши данные не передаются разработчику или третьим
+      лицам. Всё, что вводится и сохраняется, остаётся только на вашем устройстве.</p>
+    </div>
+
+    <h3>1. Кто мы</h3>
+    <p>Разработчик расширения — Евгений Тюрин
+    (<a href="https://zhenyagen.github.io/ZhenyaGen/">zhenyagen.github.io</a>).
+    Расширение CheckINN предназначено для предварительной проверки контрагента
+    по ИНН в открытых государственных реестрах.</p>
+
+    <h3>2. Какие данные обрабатываются</h3>
+    <table>
+      <tr><th>Данные</th><th>Источник</th><th>Где хранятся</th></tr>
+      <tr><td>ИНН контрагента</td><td>Ввод пользователя или выделенный им текст на странице</td><td>Локально, <code>chrome.storage.local</code></td></tr>
+      <tr><td>Результаты проверок</td><td>Публичные страницы государственных реестров</td><td>Локально (последние 20 проверок)</td></tr>
+      <tr><td>Выбор источников проверки</td><td>Действия пользователя</td><td>Локально</td></tr>
+    </table>
+    <p>ИНН индивидуальных предпринимателей и физических лиц относится к персональным
+    данным. Расширение хранит историю таких проверок <b>только на вашем компьютере</b>
+    и не передаёт её никуда.</p>
+
+    <h3>3. Как используются данные</h3>
+    <p>Данные используются исключительно для основного назначения расширения —
+    показать вам результат проверки контрагента и историю ваших запросов.
+    Данные <b>не</b> используются для рекламы, не продаются и не передаются
+    третьим лицам, не применяются для оценки кредитоспособности или в целях кредитования,
+    не используются для целей, не связанных с назначением расширения.</p>
+
+    <h3>4. Передача данных и сеть</h3>
+    <p>Расширение <b>не отправляет</b> ваши данные на какие-либо серверы. В коде
+    отсутствуют вызовы <code>fetch</code>, <code>XMLHttpRequest</code>,
+    <code>WebSocket</code>, <code>sendBeacon</code>. Единственный сетевой трафик —
+    это обычное открытие страниц государственных реестров в вкладках браузера,
+    инициированное вами по нажатию «Проверить». Тот же трафик возникает, если
+    открыть эти сайты вручную.</p>
+    <p>Обрабатываемые домены (открытые государственные ресурсы):</p>
+    <ul>
+      <li><code>egrul.nalog.ru</code> — ЕГРЮЛ / ЕГРИП</li>
+      <li><code>pb.nalog.ru</code> — «Прозрачный бизнес» (ФНС)</li>
+      <li><code>fssp.gov.ru</code> — банк данных исполнительных производств ФССП</li>
+      <li><code>zakupki.gov.ru</code> — реестры недобросовестных поставщиков (ЕИС)</li>
+      <li><code>kad.arbitr.ru</code> — картотека арбитражных дел</li>
+      <li><code>bankrot.fedresurs.ru</code> — сведения о банкротстве</li>
+      <li><code>www.reestr-zalogov.ru</code> — реестр уведомлений о залоге</li>
+    </ul>
+
+    <h3>5. Разрешения браузера</h3>
+    <ul>
+      <li><code>tabs</code> — открыть, активировать и закрыть вкладки проверки (только собственные вкладки расширения).</li>
+      <li><code>scripting</code> — прочитать результат на странице реестра и подставить выделенный ИНН.</li>
+      <li><code>storage</code> — сохранить выбор источников и локальную историю (<code>storage.local</code>, без синхронизации).</li>
+      <li><code>activeTab</code> — подставить ИНН, выделенный на текущей странице, по клику на значок.</li>
+      <li><code>host_permissions</code> — работа парсеров на страницах перечисленных выше семи реестров.</li>
+    </ul>
+
+    <h3>6. Хранение и удаление</h3>
+    <p>История ограничена 20 последними проверками, старые записи удаляются
+    автоматически. В окне расширения есть кнопка <b>«Очистить»</b>, которая
+    стирает всю историю целиком. Удаление расширения из браузера удаляет все
+    сохранённые им локальные данные.</p>
+
+    <h3>7. Дети</h3>
+    <p>Расширение не предназначено для детей и не собирает сознательно данные детей.</p>
+
+    <h3>8. Изменения политики</h3>
+    <p>При изменении состава разрешений или способа обработки данных эта политика
+    будет обновлена, а дата вверху страницы изменена.</p>
+
+    <h3>9. Контакты</h3>
+    <p>По вопросам конфиденциальности: Евгений Тюрин,
+    <a href="/cdn-cgi/l/email-protection#06524373616368634746616b676f6a2865696b"><span class="__cf_email__" data-cfemail="cf9b8abaa8aaa1aa8e8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a>.</p>
+  </section>
+
+  <hr class="big">
+
+  <!-- ============ ENGLISH ============ -->
+  <section id="en">
+    <h2>Privacy Policy</h2>
+    <p class="meta">Browser extension "CheckINN — counterparty check by INN".<br>
+    Last updated: August 13, 2026.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">In short:</span> the extension works
+      entirely locally. It has no servers, no external APIs, no telemetry and no
+      analytics. None of your data is sent to the developer or any third party.
+      Everything you enter or save stays only on your device.</p>
+    </div>
+
+    <h3>1. Who we are</h3>
+    <p>The extension is developed by Evgeny Tyurin
+    (<a href="https://zhenyagen.github.io/ZhenyaGen/">zhenyagen.github.io</a>).
+    CheckINN performs a preliminary counterparty check by INN (Russian taxpayer
+    identification number) using publicly available government registries.</p>
+
+    <h3>2. Data we process</h3>
+    <table>
+      <tr><th>Data</th><th>Source</th><th>Storage</th></tr>
+      <tr><td>Counterparty INN</td><td>User input or text selected on a page</td><td>Local, <code>chrome.storage.local</code></td></tr>
+      <tr><td>Check results</td><td>Public government registry pages</td><td>Local (last 20 checks)</td></tr>
+      <tr><td>Selected sources</td><td>User actions</td><td>Local</td></tr>
+    </table>
+    <p>An INN of a sole proprietor or an individual is personal data. The extension
+    stores the history of such checks <b>only on your computer</b> and never
+    transmits it anywhere.</p>
+
+    <h3>3. How data is used</h3>
+    <p>Data is used solely for the extension's single purpose — to show you the
+    counterparty check result and your request history. Data is <b>not</b> used
+    for advertising, is not sold or transferred to third parties, is not used to
+    determine creditworthiness or for lending purposes, and is not used for any
+    purpose unrelated to the extension's core functionality.</p>
+
+    <h3>4. Data transmission and network</h3>
+    <p>The extension <b>does not send</b> your data to any server. The code contains
+    no <code>fetch</code>, <code>XMLHttpRequest</code>, <code>WebSocket</code> or
+    <code>sendBeacon</code> calls. The only network activity is the ordinary opening
+    of government registry pages in browser tabs, initiated by you when you click
+    "Check". The same traffic occurs if you open those sites manually.</p>
+    <p>Processed domains (public government resources): <code>egrul.nalog.ru</code>,
+    <code>pb.nalog.ru</code>, <code>fssp.gov.ru</code>, <code>zakupki.gov.ru</code>,
+    <code>kad.arbitr.ru</code>, <code>bankrot.fedresurs.ru</code>,
+    <code>www.reestr-zalogov.ru</code>.</p>
+
+    <h3>5. Browser permissions</h3>
+    <ul>
+      <li><code>tabs</code> — open, activate and close check tabs (only the extension's own tabs).</li>
+      <li><code>scripting</code> — read the result on a registry page and fill in the selected INN.</li>
+      <li><code>storage</code> — save selected sources and local history (<code>storage.local</code>, no sync).</li>
+      <li><code>activeTab</code> — fill in the INN selected on the current page when the icon is clicked.</li>
+      <li><code>host_permissions</code> — parsers run on the seven registry sites listed above.</li>
+    </ul>
+
+    <h3>6. Retention and deletion</h3>
+    <p>History is limited to the last 20 checks; older entries are deleted
+    automatically. A <b>"Clear"</b> button in the extension wipes the entire
+    history. Removing the extension deletes all locally stored data.</p>
+
+    <h3>7. Children</h3>
+    <p>The extension is not intended for children and does not knowingly collect
+    children's data.</p>
+
+    <h3>8. Changes to this policy</h3>
+    <p>If the requested permissions or data handling change, this policy will be
+    updated and the date at the top revised.</p>
+
+    <h3>9. Contact</h3>
+    <p>Privacy questions: Evgeny Tyurin,
+    <a href="/cdn-cgi/l/email-protection#0551407062606b6044456268646c692b666a68"><span class="__cf_email__" data-cfemail="eabeaf9f8d8f848fabaa8d878b8386c4898587">[email&#160;protected]</span></a>.</p>
+  </section>
+
+  <footer>
+    © 2026 Евгений Тюрин / Evgeny Tyurin · CheckINN.
+    Данный документ относится к расширению CheckINN для браузеров на Chromium.
+  </footer>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
