@@ -53,7 +53,7 @@
     </div>
     <div>
       <h1>CheckINN</h1>
-      <div class="sub">Проверка контрагента по ИНН · Counterparty check by INN</div>
+      <div class="sub">Проверка контрагента по ИНН и автомобиля по VIN · Counterparty and vehicle check</div>
     </div>
   </header>
 
@@ -65,8 +65,8 @@
   <!-- ============ РУССКИЙ ============ -->
   <section id="ru">
     <h2>Политика конфиденциальности</h2>
-    <p class="meta">Расширение для браузера «CheckINN — проверка контрагента по ИНН».<br>
-    Последнее обновление: 13 августа 2026 г.</p>
+    <p class="meta">Расширение для браузера «CheckINN — проверка контрагента по ИНН и автомобиля по VIN».<br>
+    Последнее обновление: 22 августа 2026 г.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">Коротко:</span> расширение работает
@@ -77,15 +77,18 @@
 
     <h3>1. Кто мы</h3>
     <p>Разработчик расширения — Евгений Тюрин
-    (<a href="https://zhenyagen.github.io/ZhenyaGen/">zhenyagen.github.io</a>).
+    (<a href="https://zhenyagen.github.io/">zhenyagen.github.io</a>).
     Расширение CheckINN предназначено для предварительной проверки контрагента
-    по ИНН в открытых государственных реестрах.</p>
+    по ИНН и транспортного средства по VIN или номеру электронного паспорта
+    в открытых государственных реестрах.</p>
 
     <h3>2. Какие данные обрабатываются</h3>
     <table>
       <tr><th>Данные</th><th>Источник</th><th>Где хранятся</th></tr>
       <tr><td>ИНН контрагента</td><td>Ввод пользователя или выделенный им текст на странице</td><td>Локально, <code>chrome.storage.local</code></td></tr>
       <tr><td>Результаты проверок</td><td>Публичные страницы государственных реестров</td><td>Локально (последние 20 проверок)</td></tr>
+      <tr><td>VIN, ПИН или номер ЭПТС автомобиля</td><td>Ввод пользователя или выделенный им текст на странице</td><td>Локально, <code>chrome.storage.local</code></td></tr>
+      <tr><td>Список номеров, собранный правым кликом</td><td>Пункт меню «CheckINN: добавить номер в список»</td><td>Локально, до переноса в форму проверки</td></tr>
       <tr><td>Выбор источников проверки</td><td>Действия пользователя</td><td>Локально</td></tr>
     </table>
     <p>ИНН индивидуальных предпринимателей и физических лиц относится к персональным
@@ -115,6 +118,8 @@
       <li><code>kad.arbitr.ru</code> — картотека арбитражных дел</li>
       <li><code>bankrot.fedresurs.ru</code> — сведения о банкротстве</li>
       <li><code>www.reestr-zalogov.ru</code> — реестр уведомлений о залоге</li>
+      <li><code>fedresurs.ru</code> — Федресурс: сообщения о договорах лизинга</li>
+      <li><code>portal.elpts.ru</code> — портал системы электронных паспортов (статус ЭПТС)</li>
     </ul>
 
     <h3>5. Разрешения браузера</h3>
@@ -123,8 +128,20 @@
       <li><code>scripting</code> — прочитать результат на странице реестра и подставить выделенный ИНН.</li>
       <li><code>storage</code> — сохранить выбор источников и локальную историю (<code>storage.local</code>, без синхронизации).</li>
       <li><code>activeTab</code> — подставить ИНН, выделенный на текущей странице, по клику на значок.</li>
-      <li><code>host_permissions</code> — работа парсеров на страницах перечисленных выше семи реестров.</li>
+      <li><code>sidePanel</code> — открыть окно расширения боковой панелью, чтобы оно не закрывалось при переходе между вкладками.</li>
+      <li><code>contextMenus</code> — пункт «CheckINN: добавить номер в список» в меню правой кнопки мыши.</li>
+      <li><code>host_permissions</code> — работа парсеров на страницах перечисленных выше девяти реестров.</li>
     </ul>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">Чего расширение не делает.</span>
+      Оно <b>не обходит защиту сайтов</b>: если реестр показывает капчу, её вводит
+      человек, распознаванием расширение не занимается. Оно <b>не выполняет вход</b>
+      за пользователя — ни через Госуслуги на портале электронных паспортов, ни
+      где-либо ещё, — и не имеет доступа к логинам и паролям. Если страница
+      не разобрана уверенно, расширение честно помечает источник жёлтым и
+      оставляет вкладку открытой, а не додумывает результат.</p>
+    </div>
 
     <h3>6. Хранение и удаление</h3>
     <p>История ограничена 20 последними проверками, старые записи удаляются
@@ -149,8 +166,8 @@
   <!-- ============ ENGLISH ============ -->
   <section id="en">
     <h2>Privacy Policy</h2>
-    <p class="meta">Browser extension "CheckINN — counterparty check by INN".<br>
-    Last updated: August 13, 2026.</p>
+    <p class="meta">Browser extension "CheckINN — counterparty check by INN and vehicle check by VIN".<br>
+    Last updated: August 22, 2026.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">In short:</span> the extension works
@@ -161,15 +178,18 @@
 
     <h3>1. Who we are</h3>
     <p>The extension is developed by Evgeny Tyurin
-    (<a href="https://zhenyagen.github.io/ZhenyaGen/">zhenyagen.github.io</a>).
+    (<a href="https://zhenyagen.github.io/">zhenyagen.github.io</a>).
     CheckINN performs a preliminary counterparty check by INN (Russian taxpayer
-    identification number) using publicly available government registries.</p>
+    identification number) and a vehicle check by VIN or electronic passport
+    number, using publicly available government registries.</p>
 
     <h3>2. Data we process</h3>
     <table>
       <tr><th>Data</th><th>Source</th><th>Storage</th></tr>
       <tr><td>Counterparty INN</td><td>User input or text selected on a page</td><td>Local, <code>chrome.storage.local</code></td></tr>
       <tr><td>Check results</td><td>Public government registry pages</td><td>Local (last 20 checks)</td></tr>
+      <tr><td>Vehicle VIN or electronic passport number</td><td>User input or text selected on a page</td><td>Local, <code>chrome.storage.local</code></td></tr>
+      <tr><td>Numbers collected via the context menu</td><td>"CheckINN: add number to list" menu item</td><td>Local, until moved into the check form</td></tr>
       <tr><td>Selected sources</td><td>User actions</td><td>Local</td></tr>
     </table>
     <p>An INN of a sole proprietor or an individual is personal data. The extension
@@ -192,7 +212,8 @@
     <p>Processed domains (public government resources): <code>egrul.nalog.ru</code>,
     <code>pb.nalog.ru</code>, <code>fssp.gov.ru</code>, <code>zakupki.gov.ru</code>,
     <code>kad.arbitr.ru</code>, <code>bankrot.fedresurs.ru</code>,
-    <code>www.reestr-zalogov.ru</code>.</p>
+    <code>www.reestr-zalogov.ru</code>, <code>fedresurs.ru</code>,
+    <code>portal.elpts.ru</code>.</p>
 
     <h3>5. Browser permissions</h3>
     <ul>
@@ -200,8 +221,20 @@
       <li><code>scripting</code> — read the result on a registry page and fill in the selected INN.</li>
       <li><code>storage</code> — save selected sources and local history (<code>storage.local</code>, no sync).</li>
       <li><code>activeTab</code> — fill in the INN selected on the current page when the icon is clicked.</li>
-      <li><code>host_permissions</code> — parsers run on the seven registry sites listed above.</li>
+      <li><code>sidePanel</code> — show the extension window as a side panel so it stays open while switching tabs.</li>
+      <li><code>contextMenus</code> — the "CheckINN: add number to list" right-click menu item.</li>
+      <li><code>host_permissions</code> — parsers run on the nine registry sites listed above.</li>
     </ul>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">What the extension never does.</span>
+      It does <b>not bypass website protections</b>: if a registry shows a CAPTCHA,
+      the user solves it — the extension performs no recognition. It <b>never signs in</b>
+      on the user's behalf, including via Gosuslugi on the electronic passport portal,
+      and has no access to logins or passwords. When a page cannot be parsed with
+      confidence, the extension marks the source yellow and leaves the tab open
+      instead of inventing a result.</p>
+    </div>
 
     <h3>6. Retention and deletion</h3>
     <p>History is limited to the last 20 checks; older entries are deleted
