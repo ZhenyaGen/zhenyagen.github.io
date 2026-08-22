@@ -128,6 +128,31 @@ h3{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:10px}
   font-size:clamp(19px,2.4vw,24px);line-height:1.45;font-weight:500;
 }
 
+/* --- наработки --- */
+.feature{grid-column:1/-1;border-color:var(--accent)}
+.feature h3{font-size:24px;max-width:24ch}
+.feature p{max-width:74ch;flex:none}
+.fresh{
+  align-self:flex-start;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent);border-radius:99px;
+  padding:4px 12px;margin-bottom:16px;
+}
+.metrics{
+  display:grid;grid-template-columns:1fr 44px 1fr;gap:18px;align-items:center;
+  margin-top:24px;border-top:1px solid var(--line);padding-top:22px;
+}
+.m-num{
+  display:block;font-family:var(--display);font-weight:600;font-size:26px;
+  color:var(--accent);margin-bottom:6px;
+}
+.m-num.was{color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px}
+.m-cap{display:block;font-size:15px;color:var(--muted);line-height:1.45}
+.m-arrow{color:var(--accent);font-size:22px;text-align:center;display:block}
+@media(max-width:700px){
+  .metrics{grid-template-columns:1fr;gap:12px}
+  .m-arrow{text-align:left}
+}
+
 /* --- образование --- */
 .edu{margin-top:72px;border-top:1px solid var(--line);padding-top:34px}
 .edu-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -220,6 +245,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <span class="brand">Евгений Тюрин</span>
     <nav><ul>
       <li><a href="#uslugi">Услуги</a></li>
+      <li><a href="#raboty">Наработки</a></li>
       <li><a href="#kto">Кто я</a></li>
       <li><a href="#kontakty">Контакты</a></li>
     </ul></nav>
@@ -286,6 +312,54 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       </div>
     </div>
 
+  </div>
+</section>
+
+<section id="raboty">
+  <div class="wrap">
+    <p class="label rise">Наработки</p>
+    <h2 class="rise">Что уже работает</h2>
+
+    <div class="services">
+
+      <article class="card feature rise">
+        <span class="fresh">Свежее</span>
+        <h3>Массовая проверка компаний по открытым реестрам</h3>
+        <p>Программа сама обходит сайты госорганов, собирает данные по списку компаний, раскладывает их по нужным параметрам и строит сводный отчёт с диаграммами. Раньше это был ручной обход: найти, скопировать, вставить в таблицу — и так по каждой.</p>
+        <div class="metrics">
+          <div><span class="m-num was">≈10 минут</span><span class="m-cap">на одну компанию вручную</span></div>
+          <div><span class="m-arrow">→</span></div>
+          <div><span class="m-num">≈6 минут</span><span class="m-cap">на десять компаний вместе со сводным отчётом</span></div>
+        </div>
+      </article>
+
+      <article class="card rise">
+        <h3>Проверка контрагента по ИНН</h3>
+        <p>Расширение для браузера: вводите ИНН — оно само проходит по федеральным реестрам и собирает исполнительные производства, арбитражные дела и записи о недобросовестных поставщиках в один отчёт. Отдельно проверяет ограничения на автомобиль.</p>
+      </article>
+
+      <article class="card rise">
+        <h3>VKAudit</h3>
+        <p>Мини-приложение и десктопная программа: до 30 проверок зон роста сообщества, план на четыре недели, тепловая карта времени публикаций и сравнение с конкурентами по медианам за 90 дней. Работает без сервера, ничего не сохраняет.</p>
+        <a class="price" href="https://vk.ru/app54693601_555600384" target="_blank" rel="noopener">Открыть во ВКонтакте →</a>
+      </article>
+
+      <article class="card rise">
+        <h3>Регистрация уведомлений в реестре нотариальной палаты</h3>
+        <p>Программа закрыла ручную операцию отдела целиком. Написал сам и провёл внедрение в ежедневную работу команды.</p>
+      </article>
+
+      <article class="card rise">
+        <h3>Трекер и генератор документов</h3>
+        <p>Система сопровождения кредитно-обеспечительной документации для операционного департамента: статусная модель, принцип двух рук, расчёт времени по статусам и SLA. Ключевая часть — сборка договоров и допсоглашений вместо ручного заполнения шаблонов.</p>
+      </article>
+
+      <article class="card rise">
+        <h3>Студия «НРАФ»</h3>
+        <p>Запуск студии наращивания ресниц с нуля: название, айдентика, все рекламные материалы и видео сделаны нейросетями, реклама настроена самостоятельно. Тот случай, когда упаковку я делал не по чужому брифу, а за свои деньги.</p>
+      </article>
+
+    </div>
   </div>
 </section>
 
