@@ -66,7 +66,7 @@
   <section id="ru">
     <h2>Политика конфиденциальности</h2>
     <p class="meta">Расширение для браузера «CheckINN — проверка контрагента по ИНН и автомобиля по VIN».<br>
-    Последнее обновление: 22 августа 2026 г.</p>
+    Последнее обновление: 27 августа 2026 г.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">Коротко:</span> расширение работает
@@ -89,6 +89,7 @@
       <tr><td>Результаты проверок</td><td>Публичные страницы государственных реестров</td><td>Локально (последние 20 проверок)</td></tr>
       <tr><td>VIN, ПИН или номер ЭПТС автомобиля</td><td>Ввод пользователя или выделенный им текст на странице</td><td>Локально, <code>chrome.storage.local</code></td></tr>
       <tr><td>Список номеров, собранный правым кликом</td><td>Пункт меню «CheckINN: добавить номер в список»</td><td>Локально, до переноса в форму проверки</td></tr>
+      <tr><td>Копии проверенных страниц и отчёт</td><td>Страницы, открытые самим расширением</td><td>Папка «Загрузки» на компьютере пользователя, только по его галочке</td></tr>
       <tr><td>Выбор источников проверки</td><td>Действия пользователя</td><td>Локально</td></tr>
     </table>
     <p>ИНН индивидуальных предпринимателей и физических лиц относится к персональным
@@ -130,6 +131,8 @@
       <li><code>activeTab</code> — подставить ИНН, выделенный на текущей странице, по клику на значок.</li>
       <li><code>sidePanel</code> — открыть окно расширения боковой панелью, чтобы оно не закрывалось при переходе между вкладками.</li>
       <li><code>contextMenus</code> — пункт «CheckINN: добавить номер в список» в меню правой кнопки мыши.</li>
+      <li><code>pageCapture</code> — сохранить копию проверенной страницы реестра в файл .mhtml. Только по включённой пользователем галочке «Сохранять страницы реестров».</li>
+      <li><code>downloads</code> — положить эти копии и текстовый отчёт в папку «Загрузки». Файлы создаются из уже открытых страниц и остаются на компьютере; из сети ничего не скачивается.</li>
       <li><code>host_permissions</code> — работа парсеров на страницах перечисленных выше девяти реестров.</li>
     </ul>
 
@@ -167,7 +170,7 @@
   <section id="en">
     <h2>Privacy Policy</h2>
     <p class="meta">Browser extension "CheckINN — counterparty check by INN and vehicle check by VIN".<br>
-    Last updated: August 22, 2026.</p>
+    Last updated: August 27, 2026.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">In short:</span> the extension works
@@ -190,6 +193,7 @@
       <tr><td>Check results</td><td>Public government registry pages</td><td>Local (last 20 checks)</td></tr>
       <tr><td>Vehicle VIN or electronic passport number</td><td>User input or text selected on a page</td><td>Local, <code>chrome.storage.local</code></td></tr>
       <tr><td>Numbers collected via the context menu</td><td>"CheckINN: add number to list" menu item</td><td>Local, until moved into the check form</td></tr>
+      <tr><td>Copies of checked pages and the report</td><td>Pages opened by the extension itself</td><td>The user's Downloads folder, only when they enable the option</td></tr>
       <tr><td>Selected sources</td><td>User actions</td><td>Local</td></tr>
     </table>
     <p>An INN of a sole proprietor or an individual is personal data. The extension
@@ -223,6 +227,8 @@
       <li><code>activeTab</code> — fill in the INN selected on the current page when the icon is clicked.</li>
       <li><code>sidePanel</code> — show the extension window as a side panel so it stays open while switching tabs.</li>
       <li><code>contextMenus</code> — the "CheckINN: add number to list" right-click menu item.</li>
+      <li><code>pageCapture</code> — save a copy of a checked registry page as an .mhtml file. Only when the user has enabled the "save registry pages" option.</li>
+      <li><code>downloads</code> — put those copies and the text report into the Downloads folder. Files are produced from pages already open in the browser and stay on the user's computer; nothing is downloaded from the network.</li>
       <li><code>host_permissions</code> — parsers run on the nine registry sites listed above.</li>
     </ul>
 
