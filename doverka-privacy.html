@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Доверка — Политика конфиденциальности / Privacy Policy</title>
+<style>
+  :root { --blue:#2563eb; --text:#1e293b; --gray:#64748b; --line:#e2e8f0; --bg:#f8fafc; }
+  * { box-sizing:border-box; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text); background:var(--bg); margin:0; line-height:1.65;
+  }
+  .wrap { max-width:820px; margin:0 auto; padding:32px 20px 80px; background:#fff;
+          box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  header { display:flex; align-items:center; gap:14px; border-bottom:2px solid var(--line);
+           padding-bottom:20px; margin-bottom:8px; }
+  .logo { width:48px; height:48px; background:var(--blue); border-radius:12px;
+          display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .logo svg { width:30px; height:30px; }
+  h1 { font-size:24px; margin:0; }
+  .sub { color:var(--gray); font-size:14px; margin-top:2px; }
+  .lang-switch { margin:18px 0 28px; }
+  .lang-switch a { display:inline-block; padding:6px 14px; border:1px solid var(--line);
+                   border-radius:8px; text-decoration:none; color:var(--blue); font-size:14px;
+                   margin-right:8px; }
+  h2 { font-size:20px; margin-top:34px; padding-top:10px; }
+  h3 { font-size:16px; margin-top:22px; color:var(--text); }
+  p, li { font-size:15px; }
+  .meta { color:var(--gray); font-size:13px; }
+  .box { background:var(--bg); border:1px solid var(--line); border-radius:10px;
+         padding:14px 18px; margin:16px 0; }
+  .ok { color:#15803d; font-weight:600; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--gray); font-weight:600; }
+  code { background:#eef2ff; color:#3730a3; padding:1px 6px; border-radius:4px; font-size:13px; }
+  hr.big { border:none; border-top:2px solid var(--line); margin:56px 0; }
+  footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--gray); font-size:13px; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 3.6h7.2L18.4 8.8v11.6H6z" fill="#fff"/>
+        <path d="M13.2 3.6 18.4 8.8h-5.2z" fill="#c7d2ea"/>
+        <circle cx="17" cy="17" r="4.6" fill="#18a05c" stroke="#2563eb" stroke-width="1.4"/>
+        <path d="M15 17.1l1.4 1.4 2.6-2.9" stroke="#fff" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Доверка</h1>
+      <div class="sub">Проверка машиночитаемой доверенности (МЧД) · Machine-readable power of attorney check</div>
+    </div>
+  </header>
+
+  <div class="lang-switch">
+    <a href="#ru">Русский</a>
+    <a href="#en">English</a>
+  </div>
+
+  <!-- ============ РУССКИЙ ============ -->
+  <section id="ru">
+    <h2>Политика конфиденциальности</h2>
+    <p class="meta">Расширение для браузера «Доверка — проверка МЧД».<br>
+    Последнее обновление: 27 августа 2026 г.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">Коротко:</span> файл доверенности
+      разбирается целиком в браузере и никуда не отправляется. Серверов,
+      внешних API, телеметрии и аналитики у расширения нет. Единственное
+      обращение наружу — открытие страницы реестра ФНС по нажатию кнопки,
+      и в нём передаётся только номер доверенности.</p>
+    </div>
+
+    <h3>1. Кто мы</h3>
+    <p>Разработчик расширения — Евгений Тюрин, частное лицо. Расширение
+    распространяется бесплатно через Chrome Web Store.</p>
+
+    <h3>2. Какие данные обрабатываются</h3>
+    <p>Машиночитаемая доверенность содержит персональные данные представителя:
+    фамилию, имя и отчество, СНИЛС, ИНН, дату рождения, реквизиты документа,
+    удостоверяющего личность. Расширение читает их, чтобы показать человеку
+    содержимое документа.</p>
+    <table>
+      <tr><th>Данные</th><th>Откуда</th><th>Где остаются</th><th>Сколько хранятся</th></tr>
+      <tr>
+        <td>Содержимое файла доверенности</td>
+        <td>Пользователь сам перетаскивает файл в панель</td>
+        <td>Оперативная память вкладки расширения</td>
+        <td>До закрытия панели или загрузки другого файла</td>
+      </tr>
+      <tr>
+        <td>Готовый отчёт для вкладки печати</td>
+        <td>Формируется из того же файла</td>
+        <td><code>chrome.storage.session</code></td>
+        <td>До закрытия браузера</td>
+      </tr>
+      <tr>
+        <td>Матрица полномочий организации</td>
+        <td>Страница, открытая пользователем; файл; групповая политика</td>
+        <td><code>chrome.storage.local</code></td>
+        <td>До замены или удаления пользователем</td>
+      </tr>
+      <tr>
+        <td>Номер доверенности</td>
+        <td>Из файла, по нажатию «Проверить в реестре»</td>
+        <td>Передаётся в реестр ФНС как параметр адреса страницы</td>
+        <td>В расширении не сохраняется</td>
+      </tr>
+    </table>
+    <p>Матрица полномочий — справочная таблица правил организации, персональных
+    данных в ней нет. Содержимое доверенности на диск не записывается.</p>
+
+    <h3>3. Как используются данные</h3>
+    <p>Только для того, ради чего расширение установлено: показать содержимое
+    доверенности в читаемом виде, проверить срок действия, контрольные суммы
+    реквизитов, состав полномочий и, по отдельной команде, действительность
+    доверенности в реестре ФНС.</p>
+    <p>Данные не используются для рекламы, профилирования, оценки
+    кредитоспособности и не передаются третьим лицам.</p>
+
+    <h3>4. Передача данных и сеть</h3>
+    <p>Сетевых вызовов в коде расширения нет: ни <code>fetch</code>, ни
+    <code>XMLHttpRequest</code>, ни <code>WebSocket</code>, ни
+    <code>sendBeacon</code>. Это проверяется автоматическим тестом при каждой
+    сборке.</p>
+    <p><b>Единственное обращение наружу.</b> По нажатию кнопки «Проверить в
+    реестре» браузер открывает страницу Федеральной налоговой службы России
+    <code>m4d.nalog.gov.ru</code> — тот самый адрес, который указан в самой
+    доверенности, — и расширение читает ответ о её действительности. В адресе
+    передаётся <b>только номер доверенности</b>.</p>
+    <p><b>Персональные данные представителя — ФИО, СНИЛС, ИНН, дата рождения,
+    паспорт — не передаются никуда и ни при каких действиях.</b></p>
+    <p>Это выглядит так же, как если бы пользователь сам открыл сайт реестра и
+    ввёл туда номер доверенности.</p>
+
+    <h3>5. Разрешения браузера</h3>
+    <table>
+      <tr><th>Разрешение</th><th>Зачем</th><th>Ограничение</th></tr>
+      <tr><td><code>sidePanel</code></td>
+          <td>Показать разбор доверенности в боковой панели</td>
+          <td>В панели открывается только страница самого расширения</td></tr>
+      <tr><td><code>storage</code></td>
+          <td>Передать отчёт во вкладку печати и хранить матрицу полномочий</td>
+          <td>Содержимое доверенности на диск не пишется; синхронизация с аккаунтом Google не используется</td></tr>
+      <tr><td><code>contextMenus</code></td>
+          <td>Пункт «Доверка: взять матрицу полномочий с этой страницы»</td>
+          <td>Пункт один; пока по нему не нажали, расширение со страницей ничего не делает</td></tr>
+      <tr><td><code>activeTab</code></td>
+          <td>Прочитать таблицу полномочий на странице, где пользователь вызвал этот пункт</td>
+          <td>Доступ выдаёт браузер разово, только на эту вкладку и до её перезагрузки</td></tr>
+      <tr><td><code>scripting</code></td>
+          <td>Собственно чтение таблицы и работа со страницей реестра</td>
+          <td>Только там, где доступ уже выдан</td></tr>
+      <tr><td><code>m4d.nalog.gov.ru</code></td>
+          <td>Открыть страницу статуса доверенности и прочитать ответ</td>
+          <td>Единственный адрес в списке; вкладка открывается только по нажатию кнопки</td></tr>
+    </table>
+    <p>Постоянно внедряемых скриптов (<code>content_scripts</code>) у расширения нет.</p>
+
+    <h3>6. Хранение и удаление</h3>
+    <p>Содержимое доверенности исчезает вместе с закрытой панелью, отчёт — при
+    закрытии браузера. Матрица полномочий удаляется кнопкой «Убрать матрицу» на
+    экране настроек. Удаление расширения стирает все его данные.</p>
+
+    <h3>7. Дети</h3>
+    <p>Расширение предназначено для профессионального использования и не
+    рассчитано на детей; данные детей не собираются.</p>
+
+    <h3>8. Изменения политики</h3>
+    <p>Если изменится состав разрешений или порядок обработки данных, политика
+    будет обновлена, а дата вверху страницы изменена.</p>
+
+    <h3>9. Контакты</h3>
+    <p>По вопросам конфиденциальности: Евгений Тюрин,
+    <a href="mailto:teugenea@gmail.com">teugenea@gmail.com</a>.</p>
+  </section>
+
+  <hr class="big">
+
+  <!-- ============ ENGLISH ============ -->
+  <section id="en">
+    <h2>Privacy Policy</h2>
+    <p class="meta">Browser extension "Doverka — machine-readable power of attorney check".<br>
+    Last updated: August 27, 2026.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">In short:</span> the power of attorney
+      file is parsed entirely in the browser and is never uploaded anywhere. The
+      extension has no servers, no external APIs, no telemetry and no analytics.
+      The only outbound action is opening a Russian Federal Tax Service registry
+      page when the user clicks a button, and it carries the document number only.</p>
+    </div>
+
+    <h3>1. Who we are</h3>
+    <p>The extension is developed by Evgeny Tyurin, an individual. It is
+    distributed free of charge through the Chrome Web Store.</p>
+
+    <h3>2. Data we process</h3>
+    <p>A machine-readable power of attorney (MPoA) contains personal data of the
+    representative: full name, insurance number (SNILS), taxpayer number (INN),
+    date of birth and identity document details. The extension reads them in
+    order to display the document to the user.</p>
+    <table>
+      <tr><th>Data</th><th>Source</th><th>Where it stays</th><th>Retention</th></tr>
+      <tr>
+        <td>Contents of the power of attorney file</td>
+        <td>The user drags the file into the panel</td>
+        <td>In-memory, in the extension tab</td>
+        <td>Until the panel is closed or another file is loaded</td>
+      </tr>
+      <tr>
+        <td>Rendered report for the print tab</td>
+        <td>Built from the same file</td>
+        <td><code>chrome.storage.session</code></td>
+        <td>Until the browser is closed</td>
+      </tr>
+      <tr>
+        <td>Organization's authority matrix</td>
+        <td>A page opened by the user, a file, or group policy</td>
+        <td><code>chrome.storage.local</code></td>
+        <td>Until replaced or deleted by the user</td>
+      </tr>
+      <tr>
+        <td>Power of attorney number</td>
+        <td>From the file, on clicking "Check in the registry"</td>
+        <td>Sent to the tax service registry as a URL parameter</td>
+        <td>Not stored by the extension</td>
+      </tr>
+    </table>
+    <p>The authority matrix is a reference table of internal rules and contains no
+    personal data. The contents of the power of attorney are never written to disk.</p>
+
+    <h3>3. How data is used</h3>
+    <p>Only for the purpose the extension is installed for: displaying the
+    document in readable form, checking its validity period, the checksums of its
+    identifiers, the scope of granted authorities and — on a separate user
+    action — its status in the state registry.</p>
+    <p>Data is never used for advertising, profiling or credit scoring, and is
+    never shared with third parties.</p>
+
+    <h3>4. Data transmission and network</h3>
+    <p>There are no network calls in the extension's code: no <code>fetch</code>,
+    no <code>XMLHttpRequest</code>, no <code>WebSocket</code>, no
+    <code>sendBeacon</code>. This is verified by an automated test on every build.</p>
+    <p><b>The single outbound action.</b> When the user clicks "Check in the
+    registry", the browser opens a page of the Russian Federal Tax Service at
+    <code>m4d.nalog.gov.ru</code> — the very address stated inside the document
+    itself — and the extension reads the validity answer. The address carries
+    <b>the document number only</b>.</p>
+    <p><b>The representative's personal data — name, SNILS, INN, date of birth,
+    identity document — is never transmitted anywhere, under any action.</b></p>
+    <p>This is equivalent to the user opening the registry website and typing the
+    document number in by hand.</p>
+
+    <h3>5. Browser permissions</h3>
+    <table>
+      <tr><th>Permission</th><th>Purpose</th><th>Limitation</th></tr>
+      <tr><td><code>sidePanel</code></td>
+          <td>Display the parsed document in the browser side panel</td>
+          <td>Only the extension's own page is shown there</td></tr>
+      <tr><td><code>storage</code></td>
+          <td>Pass the report to the print tab and store the authority matrix</td>
+          <td>Document contents are never written to disk; Google account sync is not used</td></tr>
+      <tr><td><code>contextMenus</code></td>
+          <td>A single item, "Doverka: take the authority matrix from this page"</td>
+          <td>Until it is clicked, the extension does nothing with the page</td></tr>
+      <tr><td><code>activeTab</code></td>
+          <td>Read the authority table on the page where the user invoked that item</td>
+          <td>Granted by the browser once, for that tab only, until it reloads</td></tr>
+      <tr><td><code>scripting</code></td>
+          <td>Reading that table and working with the registry page</td>
+          <td>Only where access has already been granted</td></tr>
+      <tr><td><code>m4d.nalog.gov.ru</code></td>
+          <td>Open the document status page and read the answer</td>
+          <td>The only host in the list; opened solely on a button click</td></tr>
+    </table>
+    <p>The extension declares no persistently injected <code>content_scripts</code>.</p>
+
+    <h3>6. Retention and deletion</h3>
+    <p>Document contents disappear when the panel closes; the report when the
+    browser closes. The authority matrix is removed with the "Remove matrix"
+    button on the settings screen. Uninstalling the extension erases all its data.</p>
+
+    <h3>7. Children</h3>
+    <p>The extension is intended for professional use, is not directed at children
+    and does not knowingly collect children's data.</p>
+
+    <h3>8. Changes to this policy</h3>
+    <p>If the requested permissions or data handling change, this policy will be
+    updated and the date at the top revised.</p>
+
+    <h3>9. Contact</h3>
+    <p>Privacy questions: Evgeny Tyurin,
+    <a href="mailto:teugenea@gmail.com">teugenea@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    © 2026 Евгений Тюрин / Evgeny Tyurin · Доверка.
+    Данный документ относится к расширению «Доверка» для браузеров на Chromium.
+  </footer>
+
+</div>
+</body>
+</html>
