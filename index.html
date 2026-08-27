@@ -106,6 +106,27 @@ h3{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:10px}
 .card p{color:var(--muted);font-size:16px;flex:1;margin-bottom:22px}
 .price{font-family:var(--display);font-weight:600;font-size:16px;color:var(--accent)}
 .price sup{color:var(--muted);font-size:13px}
+/* цены спрятаны, но доступны по клику */
+.prices{margin-top:34px;border-top:1px solid var(--line);padding-top:26px}
+.prices summary{
+  cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+  font-size:15px;color:var(--muted);list-style:none;
+  border:1px solid var(--line);border-radius:99px;padding:9px 20px;
+  transition:color .18s ease,border-color .18s ease;
+}
+.prices summary::-webkit-details-marker{display:none}
+.prices summary::after{content:"▾";color:var(--accent);font-size:12px}
+.prices[open] summary::after{content:"▴"}
+.prices summary:hover{color:var(--text);border-color:var(--accent)}
+.prices ul{list-style:none;margin-top:22px;max-width:520px}
+.prices li{
+  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.prices li span{color:var(--muted);font-size:16px}
+.prices li b{font-family:var(--display);font-weight:600;font-size:16px;color:var(--accent);white-space:nowrap}
+.prices>p{color:var(--muted);font-size:15px;margin-top:16px;max-width:60ch}
+
 .footnote{
   margin-top:34px;border-top:1px solid var(--line);padding-top:26px;
   display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
@@ -281,28 +302,29 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <article class="card rise">
         <h3>Автоматизация рутины</h3>
         <p>Локальные программы, браузерные расширения, мини-приложения. Обработчики файлов, сверки, отчёты, дашборды. Собрали один раз — работает само, инструмент остаётся у вас.</p>
-        <!-- ЦЕНЫ СКРЫТЫ: уберите комментарий, чтобы вернуть
-        <span class="price">от 8 000 ₽<sup>*</sup></span>
-        -->
       </article>
 
       <article class="card rise">
         <h3>Обучение нейросетям</h3>
         <p>Консультации, менторинг, воркшопы и лекции. Для команды или один на один. Уходят не с конспектом, а с готовыми промптами под свои задачи.</p>
-        <!-- ЦЕНЫ СКРЫТЫ: уберите комментарий, чтобы вернуть
-        <span class="price">от 1 500 ₽ за час<sup>*</sup></span>
-        -->
       </article>
 
       <article class="card rise">
         <h3>Визуал для бизнеса</h3>
         <p>Логотип, фирменный стиль, карточки товаров, видео и контент для соцсетей. Всё через нейросети — поэтому быстро и без бюджета студии.</p>
-        <!-- ЦЕНЫ СКРЫТЫ: уберите комментарий, чтобы вернуть
-        <span class="price">от 5 000 ₽<sup>*</sup></span>
-        -->
       </article>
 
     </div>
+
+    <details class="prices rise">
+      <summary>Показать цены</summary>
+      <ul>
+        <li><span>Автоматизация рутины</span><b>от 8 000 ₽</b></li>
+        <li><span>Консультация по нейросетям</span><b>от 3 000 ₽</b></li>
+        <li><span>Визуал для бизнеса</span><b>от 5 000 ₽</b></li>
+      </ul>
+      <p>Это нижняя граница, а не прайс: точную цену называю после того, как разберём задачу.</p>
+    </details>
 
     <div class="footnote rise">
       <span class="star" aria-hidden="true">*</span>
