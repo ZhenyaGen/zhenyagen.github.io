@@ -9,6 +9,9 @@
 <meta property="og:description" content="Программы под вашу рутину, визуал через нейросети, обучение команд.">
 <meta property="og:image" content="img/hero-award.jpg">
 <meta property="og:type" content="website">
+<link rel="alternate" hreflang="ru" href="https://zhenyagen.github.io/">
+<link rel="alternate" hreflang="en" href="https://zhenyagen.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://zhenyagen.github.io/">
 <link rel="icon" href="img/avatar-square.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,7 +243,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media(max-width:900px){
   .services{grid-template-columns:1fr}
   .about,.moose .inner{grid-template-columns:1fr;gap:32px}
-  .nav ul{display:none}
+  /* на узких экранах из навигации остаётся только переключатель языка */
+  .nav ul li:not(.lang){display:none}
   section{padding:76px 0}
 }
 @media(max-width:600px){
@@ -269,6 +273,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <li><a href="#raboty">Наработки</a></li>
       <li><a href="#kto">Кто я</a></li>
       <li><a href="#kontakty">Контакты</a></li>
+      <li class="lang"><a href="en/">EN</a></li>
     </ul></nav>
   </div>
 </header>
@@ -319,7 +324,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <details class="prices rise">
       <summary>Показать цены</summary>
       <ul>
-        <li><span>Автоматизация рутины</span><b>от 8 000 ₽</b></li>
+        <li><span>Автоматизация рутины</span><b>от 20 000 ₽</b></li>
         <li><span>Консультация по нейросетям</span><b>от 3 000 ₽</b></li>
         <li><span>Визуал для бизнеса</span><b>от 5 000 ₽</b></li>
       </ul>
