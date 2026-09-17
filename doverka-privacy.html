@@ -69,7 +69,7 @@
   <section id="ru">
     <h2>Политика конфиденциальности</h2>
     <p class="meta">Расширение для браузера «Доверка — проверка МЧД».<br>
-    Последнее обновление: 27 августа 2026 г.</p>
+    Последнее обновление: 17 сентября 2026 г.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">Коротко:</span> файл доверенности
@@ -103,6 +103,12 @@
         <td>До закрытия браузера</td>
       </tr>
       <tr>
+        <td>Файл отсоединённой подписи <code>.sig</code>: сертификат подписавшего и слепок подписанного содержимого</td>
+        <td>Пользователь сам перетаскивает файл в панель</td>
+        <td>Оперативная память вкладки расширения</td>
+        <td>До закрытия панели или загрузки другого файла</td>
+      </tr>
+      <tr>
         <td>Матрица полномочий организации</td>
         <td>Страница, открытая пользователем; файл; групповая политика</td>
         <td><code>chrome.storage.local</code></td>
@@ -117,11 +123,15 @@
     </table>
     <p>Матрица полномочий — справочная таблица правил организации, персональных
     данных в ней нет. Содержимое доверенности на диск не записывается.</p>
+    <p>Файл подписи разбирается целиком на компьютере пользователя: сертификат
+    читается, а слепок подписанного содержимого (ГОСТ Р 34.11-2012) считается
+    реализацией внутри самого расширения. Наружу из подписи не уходит ничего.</p>
 
     <h3>3. Как используются данные</h3>
     <p>Только для того, ради чего расширение установлено: показать содержимое
     доверенности в читаемом виде, проверить срок действия, контрольные суммы
-    реквизитов, состав полномочий и, по отдельной команде, действительность
+    реквизитов, состав полномочий, прочитать приложенную подпись — кто подписал
+    и к тому ли файлу она относится — и, по отдельной команде, действительность
     доверенности в реестре ФНС.</p>
     <p>Данные не используются для рекламы, профилирования, оценки
     кредитоспособности и не передаются третьим лицам.</p>
@@ -140,6 +150,13 @@
     паспорт — не передаются никуда и ни при каких действиях.</b></p>
     <p>Это выглядит так же, как если бы пользователь сам открыл сайт реестра и
     ввёл туда номер доверенности.</p>
+    <p><b>Кнопка «Проверить на Госуслугах» обращением наружу не является.</b>
+    По ней браузер открывает страницу проверки электронной подписи на портале
+    государственных услуг — и только. Расширение не отправляет туда файлы, не
+    заполняет форму и не читает эту страницу; доступа к
+    <code>gosuslugi.ru</code> у него нет. Файлы к форме прикладывает сам
+    пользователь — это его действие и его решение. Ответ портала расширение
+    тоже не считывает: пользователь отмечает его в панели сам.</p>
 
     <h3>5. Разрешения браузера</h3>
     <table>
@@ -189,7 +206,7 @@
   <section id="en">
     <h2>Privacy Policy</h2>
     <p class="meta">Browser extension "Doverka — machine-readable power of attorney check".<br>
-    Last updated: August 27, 2026.</p>
+    Last updated: September 17, 2026.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">In short:</span> the power of attorney
@@ -223,6 +240,12 @@
         <td>Until the browser is closed</td>
       </tr>
       <tr>
+        <td>Contents of the detached signature file (<code>.sig</code>): the signer's certificate and the digest of the signed content</td>
+        <td>The user drags the file into the panel</td>
+        <td>In-memory, in the extension tab</td>
+        <td>Until the panel is closed or another file is loaded</td>
+      </tr>
+      <tr>
         <td>Organization's authority matrix</td>
         <td>A page opened by the user, a file, or group policy</td>
         <td><code>chrome.storage.local</code></td>
@@ -237,12 +260,17 @@
     </table>
     <p>The authority matrix is a reference table of internal rules and contains no
     personal data. The contents of the power of attorney are never written to disk.</p>
+    <p>The signature file is parsed entirely on the user's computer: the
+    certificate is read and the digest of the signed content (GOST R 34.11-2012)
+    is computed by an implementation inside the extension itself. Nothing from
+    the signature ever leaves the machine.</p>
 
     <h3>3. How data is used</h3>
     <p>Only for the purpose the extension is installed for: displaying the
     document in readable form, checking its validity period, the checksums of its
-    identifiers, the scope of granted authorities and — on a separate user
-    action — its status in the state registry.</p>
+    identifiers, the scope of granted authorities, reading the attached signature
+    — who signed the document and whether the signature belongs to this very file
+    — and, on a separate user action, its status in the state registry.</p>
     <p>Data is never used for advertising, profiling or credit scoring, and is
     never shared with third parties.</p>
 
@@ -259,6 +287,13 @@
     identity document — is never transmitted anywhere, under any action.</b></p>
     <p>This is equivalent to the user opening the registry website and typing the
     document number in by hand.</p>
+    <p><b>The "Check on Gosuslugi" button is not an outbound action.</b> It
+    opens the electronic signature verification page of the Russian public
+    services portal — and nothing more. The extension does not send files there,
+    does not fill the form and does not read that page; it holds no access to
+    <code>gosuslugi.ru</code>. The user attaches the files themselves, by their
+    own decision. The extension does not read the portal's answer either: the
+    user marks it in the panel by hand.</p>
 
     <h3>5. Browser permissions</h3>
     <table>
