@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Журнал подписаний — Политика конфиденциальности / Privacy Policy</title>
+<style>
+  :root { --blue:#2563eb; --text:#1e293b; --gray:#64748b; --line:#e2e8f0; --bg:#f8fafc; }
+  * { box-sizing:border-box; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text); background:var(--bg); margin:0; line-height:1.65;
+  }
+  .wrap { max-width:820px; margin:0 auto; padding:32px 20px 80px; background:#fff;
+          box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  header { display:flex; align-items:center; gap:14px; border-bottom:2px solid var(--line);
+           padding-bottom:20px; margin-bottom:8px; }
+  .logo { width:48px; height:48px; background:#1c7a4a; border-radius:12px;
+          display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .logo svg { width:30px; height:30px; }
+  h1 { font-size:24px; margin:0; }
+  .sub { color:var(--gray); font-size:14px; margin-top:2px; }
+  .lang-switch { margin:18px 0 28px; }
+  .lang-switch a { display:inline-block; padding:6px 14px; border:1px solid var(--line);
+                   border-radius:8px; text-decoration:none; color:var(--blue); font-size:14px;
+                   margin-right:8px; }
+  h2 { font-size:20px; margin-top:34px; padding-top:10px; }
+  h3 { font-size:16px; margin-top:22px; color:var(--text); }
+  p, li { font-size:15px; }
+  .meta { color:var(--gray); font-size:13px; }
+  .box { background:var(--bg); border:1px solid var(--line); border-radius:10px;
+         padding:14px 18px; margin:16px 0; }
+  .ok { color:#15803d; font-weight:600; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--gray); font-weight:600; }
+  code { background:#eef2ff; color:#3730a3; padding:1px 6px; border-radius:4px; font-size:13px; }
+  hr.big { border:none; border-top:2px solid var(--line); margin:56px 0; }
+  footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--gray); font-size:13px; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="6" cy="6" r="2" fill="#fff"/>
+        <circle cx="6" cy="12" r="2" fill="#fff"/>
+        <circle cx="6" cy="18" r="2" fill="#fff"/>
+        <path d="M11 6h9M11 12h7M11 18h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Журнал подписаний</h1>
+      <div class="sub">Кто передал документ на подпись и кто подписал — из «Исходящих» Диадока · Who handed each document for signing and who signed it</div>
+    </div>
+  </header>
+
+  <div class="lang-switch">
+    <a href="#ru">Русский</a>
+    <a href="#en">English</a>
+    <a href="https://zhenyagen.github.io/">Сайт разработчика →</a>
+  </div>
+
+  <!-- ============ РУССКИЙ ============ -->
+  <section id="ru">
+    <h2>Политика конфиденциальности</h2>
+    <p class="meta">Расширение для браузера «Журнал подписаний в Диадоке».<br>
+    Последнее обновление: 24 сентября 2026 г.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">Коротко:</span> расширение не собирает
+      персональные данные, не имеет собственного сервера и ничего никуда не
+      отправляет. Все настройки и собранный журнал остаются на компьютере
+      пользователя. Файлы расширение не скачивает вовсе.</p>
+    </div>
+
+    <h3>1. Кто мы</h3>
+    <p>Разработчик расширения — Евгений Тюрин
+    (<a href="https://zhenyagen.github.io/">zhenyagen.github.io</a>).
+    Расширение «Журнал подписаний» предназначено для тех, кто отвечает за
+    документооборот: оно собирает из папки «Исходящие» историю подписания
+    документов — кто передал документ на подпись, кто его подписал с каждой
+    стороны и когда — и сводит это в отчёт.</p>
+
+    <h3>2. Какие данные обрабатываются</h3>
+    <table>
+      <tr><th>Данные</th><th>Источник</th><th>Где хранятся</th><th>Куда передаются</th></tr>
+      <tr><td>Настройки: период, пределы на страницы и документы, пауза</td><td>Вводит пользователь</td><td>Локально, <code>chrome.storage.local</code></td><td>Никуда</td></tr>
+      <tr><td>Наименования контрагентов, названия документов и их статусы</td><td>Читаются со страницы списка в уже открытой вкладке</td><td>Локально, <code>chrome.storage.local</code></td><td>Никуда</td></tr>
+      <tr><td>История подписания: ФИО передавшего и подписавших, должности, типы сертификатов, отметки о доверенности, даты событий</td><td>Читаются с карточки документа в уже открытой вкладке</td><td>Локально, <code>chrome.storage.local</code></td><td>Никуда</td></tr>
+      <tr><td>Идентификатор организации в Диадоке (boxId) и её наименование</td><td>Из адреса и шапки открытой страницы</td><td>Локально, <code>chrome.storage.local</code></td><td>Никуда</td></tr>
+    </table>
+    <p>ФИО сотрудников и представителей контрагентов относятся к персональным
+    данным. Расширение хранит их <b>только на компьютере пользователя</b> и не
+    передаёт никуда. Отчёт в Excel сохраняет сам пользователь, и дальнейшая его
+    судьба определяется правилами его организации.</p>
+
+    <h3>3. Как используются данные</h3>
+    <p>Данные используются исключительно для основного назначения расширения —
+    показать, кто передал документ на подпись, кто его подписал и сколько это
+    заняло. Данные <b>не</b> используются для рекламы, не продаются и не
+    передаются третьим лицам, не применяются для оценки кредитоспособности или
+    в целях кредитования, не используются для целей, не связанных с назначением
+    расширения.</p>
+
+    <h3>4. Передача данных и сеть</h3>
+    <p>Передачи нет. У расширения нет серверной части, оно не обращается ни к
+    каким внешним адресам, не содержит аналитики, счётчиков и рекламных
+    библиотек и не загружает сторонний код. Весь исполняемый код входит в пакет
+    расширения.</p>
+    <p>Единственный обрабатываемый домен:</p>
+    <ul>
+      <li><code>diadoc.kontur.ru</code> — веб-интерфейс сервиса Диадок, в уже
+      открытой вкладке пользователя, под его собственной учётной записью.</li>
+    </ul>
+
+    <h3>5. Каких данных расширение не касается</h3>
+    <ul>
+      <li>Логины, пароли, коды подтверждения и сертификаты электронной подписи.
+      Вход в Диадок выполняется на сайте обычным образом, расширение в нём не
+      участвует и учётных данных не видит.</li>
+      <li>Файлы cookie и токены сессии: расширение их не читает, не хранит и не
+      передаёт.</li>
+      <li>Содержимое самих документов: расширение читает только историю
+      подписания, файлы не открывает и не скачивает.</li>
+      <li>История посещений, содержимое других вкладок и сайтов. Доступ
+      ограничен адресом <code>https://diadoc.kontur.ru/*</code>, объявленным
+      в манифесте.</li>
+    </ul>
+
+    <h3>6. Разрешения и зачем они нужны</h3>
+    <table>
+      <tr><th>Разрешение</th><th>Зачем</th></tr>
+      <tr><td><code>storage</code></td><td>Хранить настройки и результат прогона на устройстве</td></tr>
+      <tr><td><code>tabs</code></td><td>Вести одну рабочую вкладку Диадока по списку и карточкам</td></tr>
+      <tr><td><code>scripting</code></td><td>Обмениваться сообщениями со скриптом страницы Диадока</td></tr>
+      <tr><td><code>sidePanel</code></td><td>Показывать панель, закреплённую сбоку окна</td></tr>
+      <tr><td><code>https://diadoc.kontur.ru/*</code></td><td>Читать список документов и историю подписания</td></tr>
+    </table>
+    <p>Разрешение на загрузку файлов (<code>downloads</code>) не запрашивается:
+    отчёт отдаётся из самой панели.</p>
+
+    <h3>7. Хранение и удаление</h3>
+    <p>Данные хранятся только в браузере. Чтобы удалить их: нажмите «Очистить
+    результат» и «Сбросить настройки» в панели расширения либо удалите
+    расширение — Chrome удалит его хранилище автоматически. Уже выгруженный
+    отчёт остаётся у пользователя.</p>
+
+    <h3>8. Дети</h3>
+    <p>Расширение предназначено для профессионального использования и не
+    адресовано детям младше 13 лет.</p>
+
+    <h3>9. Изменения</h3>
+    <p>При изменении политики обновляется дата в начале документа. Существенные
+    изменения будут отражены в описании обновления в Chrome Web Store.</p>
+
+    <h3>10. Правовая оговорка</h3>
+    <p>Расширение разработано независимо, не связано с АО «ПФ „СКБ Контур“» и не
+    является продуктом сервиса Диадок. Товарные знаки принадлежат их
+    правообладателям.</p>
+
+    <h3>11. Контакты</h3>
+    <p>Вопросы по обработке данных: Евгений Тюрин,
+    <a href="mailto:teugenea@gmail.com">teugenea@gmail.com</a>.</p>
+  </section>
+
+  <hr class="big">
+
+  <!-- ============ ENGLISH ============ -->
+  <section id="en">
+    <h2>Privacy Policy</h2>
+    <p class="meta">Browser extension "Diadoc signing log".<br>
+    Last updated: 24 September 2026.</p>
+
+    <div class="box">
+      <p style="margin:0"><span class="ok">In short:</span> the extension collects
+      no personal data, has no backend of its own and sends nothing anywhere.
+      Settings and the collected log stay on the user's computer. It downloads
+      no files at all.</p>
+    </div>
+
+    <h3>1. Who we are</h3>
+    <p>The extension is developed by Evgeny Tyurin
+    (<a href="https://zhenyagen.github.io/">zhenyagen.github.io</a>).
+    "Signing log" is built for people responsible for document flow: it collects
+    the signing history of documents in the "Sent" folder — who handed each
+    document for signing, who signed it on each side and when — and compiles it
+    into a report.</p>
+
+    <h3>2. What data is processed</h3>
+    <table>
+      <tr><th>Data</th><th>Source</th><th>Stored in</th><th>Sent to</th></tr>
+      <tr><td>Settings: period, limits on pages and documents, pause</td><td>Typed by the user</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
+      <tr><td>Counterparty names, document names and statuses</td><td>Read from the list page in the already-open tab</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
+      <tr><td>Signing history: names of the sender and signatories, job titles, certificate types, power-of-attorney status, event dates</td><td>Read from the document page in the already-open tab</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
+      <tr><td>Diadoc organization id (boxId) and its name</td><td>From the open page's URL and header</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
+    </table>
+
+    <h3>3. How the data is used</h3>
+    <p>Solely for the extension's single purpose: showing who handed a document
+    for signing, who signed it and how long it took. The data is <b>not</b> used
+    for advertising, is not sold or shared with third parties, is not used to
+    determine creditworthiness or for lending purposes, and is not used for
+    anything unrelated to the extension's purpose.</p>
+
+    <h3>4. Data transmission and network</h3>
+    <p>None. The extension has no backend, contacts no external endpoint, and
+    contains no analytics, trackers, advertising libraries or remotely loaded
+    code. All executable code ships inside the extension package.</p>
+    <p>The only domain involved:</p>
+    <ul>
+      <li><code>diadoc.kontur.ru</code> — the Diadoc web interface, in the
+      user's already-open tab, under the user's own account.</li>
+    </ul>
+
+    <h3>5. What the extension never touches</h3>
+    <ul>
+      <li>Logins, passwords, one-time codes and signing certificates.</li>
+      <li>Cookies and session tokens: never read, stored or transmitted.</li>
+      <li>Document contents: only the signing history is read; files are never
+      opened or downloaded.</li>
+      <li>Browsing history or the contents of other tabs and sites. Access is
+      limited to <code>https://diadoc.kontur.ru/*</code> as declared in the
+      manifest.</li>
+    </ul>
+
+    <h3>6. Permissions and why they are needed</h3>
+    <table>
+      <tr><th>Permission</th><th>Purpose</th></tr>
+      <tr><td><code>storage</code></td><td>Keep settings and run results on the device</td></tr>
+      <tr><td><code>tabs</code></td><td>Drive one Diadoc working tab through the list and document pages</td></tr>
+      <tr><td><code>scripting</code></td><td>Exchange messages with the Diadoc page script</td></tr>
+      <tr><td><code>sidePanel</code></td><td>Show the panel docked to the side of the window</td></tr>
+      <tr><td><code>https://diadoc.kontur.ru/*</code></td><td>Read the document list and signing history</td></tr>
+    </table>
+    <p>The <code>downloads</code> permission is not requested: the report is
+    handed to the user from the panel itself.</p>
+
+    <h3>7. Retention and deletion</h3>
+    <p>Data lives only in the browser. To remove it: click "Очистить результат"
+    (Clear results) and "Сбросить настройки" (Reset settings) in the panel, or
+    uninstall the extension — Chrome clears its storage automatically.</p>
+
+    <h3>8. Children</h3>
+    <p>The extension is intended for professional use and is not directed to
+    children under 13.</p>
+
+    <h3>9. Changes to this policy</h3>
+    <p>Any change updates the date at the top. Material changes will be noted in
+    the Chrome Web Store update description.</p>
+
+    <h3>10. Legal notice</h3>
+    <p>This extension is developed independently. It is not affiliated with SKB
+    Kontur and is not a Diadoc product. Trademarks belong to their respective
+    owners.</p>
+
+    <h3>11. Contact</h3>
+    <p>Privacy questions: Evgeny Tyurin,
+    <a href="mailto:teugenea@gmail.com">teugenea@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    © 2026 Евгений Тюрин / Evgeny Tyurin · Журнал подписаний.
+    Данный документ относится к расширению «Журнал подписаний в Диадоке»
+    для браузеров на Chromium.
+  </footer>
+
+</div>
+</body>
+</html>
