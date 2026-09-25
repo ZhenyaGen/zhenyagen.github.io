@@ -54,7 +54,7 @@
     </div>
     <div>
       <h1>Первичка по ИНН</h1>
-      <div class="sub">Выгрузка документов клиентов из Диадока по списку ИНН · Client documents from Diadoc by a list of INNs</div>
+      <div class="sub">Выгрузка документов по списку ИНН и журнал подписаний · Diadoc documents by INN list and signing log</div>
     </div>
   </header>
 
@@ -69,7 +69,7 @@
   <section id="ru">
     <h2>Политика конфиденциальности</h2>
     <p class="meta">Расширение для браузера «Первичка по ИНН — выгрузка из Диадока».<br>
-    Последнее обновление: 10 сентября 2026 г.</p>
+    Последнее обновление: 25 сентября 2026 г.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">Коротко:</span> расширение не собирает
@@ -94,7 +94,11 @@
       <tr><td>Наименования контрагентов, названия и даты документов</td><td>Читаются со страницы Диадока в уже открытой вкладке</td><td>Локально, <code>chrome.storage.local</code>, в отчёте о прогоне</td><td>Никуда</td></tr>
       <tr><td>Идентификатор организации в Диадоке (boxId)</td><td>Из адреса открытой страницы</td><td>Локально, <code>chrome.storage.local</code></td><td>Никуда</td></tr>
       <tr><td>Сами документы</td><td>Скачиваются с сайта Диадока штатной кнопкой «Скачать»</td><td>Папка «Загрузки» на компьютере пользователя</td><td>Никуда</td></tr>
+      <tr><td>Журнал подписаний: ФИО и должности сотрудников, передавших документ на подпись и подписавших его, с обеих сторон, тип сертификата и время события</td><td>Читаются с карточки документа в уже открытой вкладке Диадока</td><td>Локально, <code>chrome.storage.local</code>, в отчёте о прогоне</td><td>Никуда</td></tr>
     </table>
+    <p>Журнал подписаний читает то же самое, что вы и сами видите на карточке
+    документа под своей учётной записью. Документы в этом режиме
+    <b>не скачиваются и не подписываются</b> — только читаются.</p>
     <p>ИНН индивидуальных предпринимателей и физических лиц относится к
     персональным данным. Расширение хранит список и результаты проверки
     <b>только на вашем компьютере</b> и не передаёт их никуда.</p>
@@ -135,11 +139,11 @@
       <tr><th>Разрешение</th><th>Зачем</th></tr>
       <tr><td><code>storage</code></td><td>Хранить настройки и результат прогона на устройстве</td></tr>
       <tr><td><code>downloads</code></td><td>Сохранять документы и раскладывать их по папкам клиентов</td></tr>
-      <tr><td><code>tabs</code></td><td>Вести одну рабочую вкладку Диадока по страницам поиска</td></tr>
-      <tr><td><code>scripting</code></td><td>Обмениваться сообщениями со скриптом страницы Диадока</td></tr>
+      <tr><td><code>tabs</code></td><td>Вести одну рабочую вкладку Диадока по страницам поиска, папкам и карточкам документов</td></tr>
+      <tr><td><code>scripting</code></td><td>Внедрять собственный скрипт страницы во вкладку Диадока, открытую до установки расширения</td></tr>
       <tr><td><code>sidePanel</code></td><td>Показывать панель, закреплённую сбоку окна</td></tr>
       <tr><td><code>contextMenus</code></td><td>Два пункта в меню у иконки расширения: ссылки на его страницу в магазине и на сайт разработчика</td></tr>
-      <tr><td><code>https://diadoc.kontur.ru/*</code></td><td>Читать список документов и нажимать кнопки на страницах Диадока</td></tr>
+      <tr><td><code>https://diadoc.kontur.ru/*</code></td><td>Читать списки документов и историю подписания, нажимать кнопки на страницах Диадока</td></tr>
     </table>
 
     <h3>7. Хранение и удаление</h3>
@@ -174,7 +178,7 @@
   <section id="en">
     <h2>Privacy Policy</h2>
     <p class="meta">Browser extension "Pervichka — client documents by INN".<br>
-    Last updated: 10 September 2026.</p>
+    Last updated: 25 September 2026.</p>
 
     <div class="box">
       <p style="margin:0"><span class="ok">In short:</span> the extension collects
@@ -198,6 +202,7 @@
       <tr><td>Settings: path template, completeness checklist, date range</td><td>Typed by the user</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
       <tr><td>Counterparty names, document names and dates</td><td>Read from the Diadoc page in the already-open tab</td><td>Locally, <code>chrome.storage.local</code>, run report</td><td>Nowhere</td></tr>
       <tr><td>Diadoc organization id (boxId)</td><td>From the open page's URL</td><td>Locally, <code>chrome.storage.local</code></td><td>Nowhere</td></tr>
+      <tr><td>Signing log: names and roles of the people who handed a document over for signing and who signed it, on both sides, certificate type and event timestamps</td><td>Read from the document card in the already-open Diadoc tab</td><td>Locally, <code>chrome.storage.local</code>, run report</td><td>Nowhere</td></tr>
       <tr><td>The documents themselves</td><td>Downloaded from Diadoc via its own Download button</td><td>The user's downloads folder</td><td>Nowhere</td></tr>
     </table>
 
@@ -235,8 +240,8 @@
       <tr><th>Permission</th><th>Purpose</th></tr>
       <tr><td><code>storage</code></td><td>Keep settings and run results on the device</td></tr>
       <tr><td><code>downloads</code></td><td>Save documents and file them into per-client folders</td></tr>
-      <tr><td><code>tabs</code></td><td>Drive one Diadoc working tab through the search pages</td></tr>
-      <tr><td><code>scripting</code></td><td>Exchange messages with the Diadoc page script</td></tr>
+      <tr><td><code>tabs</code></td><td>Drive one Diadoc working tab through search pages, folders and document cards</td></tr>
+      <tr><td><code>scripting</code></td><td>Inject the extension's own page script into a Diadoc tab opened before installation</td></tr>
       <tr><td><code>sidePanel</code></td><td>Show the panel docked to the side of the window</td></tr>
       <tr><td><code>contextMenus</code></td><td>Two entries in the extension icon's own menu: links to its store page and to the developer's site</td></tr>
       <tr><td><code>https://diadoc.kontur.ru/*</code></td><td>Read the document list and click buttons on Diadoc pages</td></tr>
