@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Женя Тюрин · ИИ-тренер</title>
+<meta name="description" content="Внедряю ИИ в процессы банка и учу этому коллег: консультации, менторинг, программы для команд.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Женя Тюрин · ИИ-тренер">
+<meta property="og:description" content="70+ консультаций, 500+ обученных сотрудников, победитель премии Озон Универ 2025.">
+<meta property="og:image" content="https://zhenyagen.github.io/img/hero-award.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="../img/avatar-square.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: одноколоночный лендинг-«конспект лекции» — крупные цифры, затем доказательства, внизу как записаться */
+:root{
+  --bg:#F2F3F8;
+  --surface:#FFFFFF;
+  --ink:#13162C;
+  --muted:#596080;
+  --line:#DADDEA;
+  --accent:#3B36E8;
+  --accent-soft:#E6E5FD;
+  --hot:#F0532F;
+  --hot-soft:#FDE6E0;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Golos Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D0F1E;--surface:#161931;--ink:#ECEEF8;--muted:#9EA4C2;--line:#2A2E4D;
+  --accent:#8F8BFF;--accent-soft:#25245A;--hot:#FF7A58;--hot-soft:#3A1E1A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D0F1E;--surface:#161931;--ink:#ECEEF8;--muted:#9EA4C2;--line:#2A2E4D;
+  --accent:#8F8BFF;--accent-soft:#25245A;--hot:#FF7A58;--hot-soft:#3A1E1A;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15;font-weight:700;letter-spacing:-.01em}
+h3{font-size:18px;line-height:1.3;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+section{padding-block:72px;border-top:1px solid var(--line);display:grid;gap:32px}
+.sec-head{display:grid;gap:12px;max-width:680px}
+.sec-head p{color:var(--muted)}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap;font-size:15px}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:48px 64px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(36px,6.4vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(18px,2vw,21px);max-width:600px;margin-top:24px}
+.lead b{font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+.award{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;gap:14px;position:relative;overflow:hidden}
+.award::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--hot-soft)}
+.award > *{position:relative;z-index:1}
+.award .yr{font-family:var(--display);font-size:56px;font-weight:800;line-height:1;color:var(--hot)}
+.award p{color:var(--muted);font-size:15px}
+.award strong{color:var(--ink);font-size:18px;font-family:var(--display);font-weight:700;line-height:1.3}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.stat{background:var(--surface);padding:24px 20px;display:grid;gap:6px;align-content:start}
+.stat .n{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,42px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat .n small{font-size:.5em;color:var(--muted);font-weight:700}
+.stat p{font-size:14px;color:var(--muted);line-height:1.4}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start}
+.case .metric{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:6px;justify-self:start}
+.case p{color:var(--muted);font-size:16px}
+
+/* programs */
+.programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.prog{border-top:3px solid var(--ink);padding-top:18px;display:grid;gap:10px;align-content:start}
+.prog .tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.prog p{color:var(--muted);font-size:15.5px}
+.prog .score{font-family:var(--mono);font-size:13px;color:var(--hot);font-weight:600}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fmt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start}
+.fmt p{color:var(--muted);font-size:15.5px}
+.fmt ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:20px;padding-block:18px;border-bottom:1px solid var(--line);align-items:baseline}
+.timeline .d{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline .t{display:grid;gap:4px}
+.timeline .t span{color:var(--muted);font-size:15px}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pill.ext{background:var(--hot-soft);color:var(--hot)}
+.pill.int{background:var(--accent-soft);color:var(--accent)}
+
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.q{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:16px;align-content:space-between}
+.q blockquote{margin:0;font-size:16.5px;line-height:1.5}
+.q blockquote::before{content:"«";font-family:var(--display);color:var(--accent);font-weight:800}
+.q blockquote::after{content:"»";font-family:var(--display);color:var(--accent);font-weight:800}
+.q figcaption{font-size:14px;color:var(--muted)}
+.q figcaption b{color:var(--ink);font-weight:600}
+.q.big{grid-column:span 2}
+.q.big blockquote{font-size:20px}
+
+/* background */
+.bio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bio div{display:grid;gap:8px;align-content:start}
+.bio .yrs{font-family:var(--mono);font-size:13px;color:var(--hot);font-weight:600}
+.bio p{color:var(--muted);font-size:15.5px}
+.bio-note{max-width:720px;font-size:19px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:40px clamp(20px,4vw,48px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;margin-block:72px 40px;border-top:0}
+.contact h2{color:var(--bg)}
+.contact .sub{color:color-mix(in srgb,var(--bg) 70%,var(--ink));margin-top:12px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:15px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.copy-row code{font-family:var(--mono);background:color-mix(in srgb,var(--bg) 14%,var(--ink));padding:6px 10px;border-radius:8px;font-size:14px}
+.copy-btn{font-family:var(--body);font-size:14px;font-weight:600;border:1px solid color-mix(in srgb,var(--bg) 40%,var(--ink));background:transparent;color:var(--bg);padding:6px 12px;border-radius:999px;cursor:pointer}
+.contact a{color:color-mix(in srgb,var(--accent) 60%,var(--bg))}
+footer{padding-block:0 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats .stat:last-child{grid-column:span 2}
+  .programs,.formats,.quotes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bio{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  section{padding-block:52px}
+  .proof,.programs,.formats,.quotes,.bio{grid-template-columns:1fr}
+  .q.big{grid-column:auto}
+  .timeline li{grid-template-columns:1fr;gap:6px}
+  .nav-links{display:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:transform .15s ease}
+  .hero h1,.hero .lead,.hero .cta,.award{animation:rise .6s ease both}
+  .hero .lead{animation-delay:.08s}.hero .cta{animation-delay:.16s}.award{animation-delay:.24s}
+  @keyframes rise{from{transform:translateY(12px)}to{transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#top">Женя<span>.</span>Тюрин</a>
+    <div class="nav-links">
+      <a href="#results">Результаты</a>
+      <a href="#programs">Программы</a>
+      <a href="#talks">Выступления</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Записаться</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <p class="eyebrow">Внутренний тренер · ИИ и нейросети</p>
+      <h1>Внедряю ИИ в&nbsp;процессы банка и&nbsp;<em>учу этому коллег</em> по&nbsp;всему Ozon</h1>
+      <p class="lead">Мои инструменты работают в проде и экономят команде десятки часов в месяц. Поэтому на встречах — <b>ваши задачи и рабочие решения</b>, а не обзор нейросетей.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Записаться на консультацию</a>
+        <a class="btn" href="#programs">Программы для команды</a>
+      </div>
+    </div>
+    <aside class="award" aria-label="Премия">
+      <span class="eyebrow">Премия Озон Универ</span>
+      <span class="yr">2025</span>
+      <strong>Победитель номинации «Ребята, я с вами»</strong>
+      <p>Из 1017 заявок. Финалист ещё в трёх номинациях.</p>
+    </aside>
+  </header>
+
+  <section id="results" aria-labelledby="results-h">
+    <div class="sec-head">
+      <p class="eyebrow">В цифрах</p>
+      <h2 id="results-h">Что уже сделано</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="n">70+</span><p>консультаций и менторских сессий</p></div>
+      <div class="stat"><span class="n">500+</span><p>обученных сотрудников: банк, Ozon fresh, логистика, Ozon Travel</p></div>
+      <div class="stat"><span class="n">9,55<small>/10</small></span><p>средняя оценка по 134 анкетам обратной связи</p></div>
+      <div class="stat"><span class="n">31</span><p>отзыв на Expertplace, в том числе от руководителей</p></div>
+      <div class="stat"><span class="n">6</span><p>авторских программ — от LLM для операционки до видео и музыки</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="proof-h">
+    <div class="sec-head">
+      <p class="eyebrow">Практика, а не теория</p>
+      <h2 id="proof-h">Учу тому, что сам внедрил</h2>
+      <p>Я ведущий специалист операционного департамента. Всё, что показываю на встречах, проверено на живых процессах банка.</p>
+    </div>
+    <div class="proof">
+      <article class="case">
+        <span class="metric">10–15 мин → 1 мин</span>
+        <h3>Программа уведомлений о залоге</h3>
+        <p>Собрал с ИИ-ассистентом без опыта разработки: первая версия — за полторы недели, вторая — за день. Обязательна в процессе для всей группы.</p>
+      </article>
+      <article class="case">
+        <span class="metric">в проде</span>
+        <h3>RAG-боты для команды</h3>
+        <p>Отвечают группе сопровождения и сверок по внутренней базе знаний вместо поиска по инструкциям вручную.</p>
+      </article>
+      <article class="case">
+        <span class="metric">роботизация</span>
+        <h3>Роботы для мониторинга и залогов</h3>
+        <p>Инициатор роботов, которые собирают данные для клиентского мониторинга и проверяют залоговые сделки.</p>
+      </article>
+      <article class="case">
+        <span class="metric">ими пользуется команда</span>
+        <h3>Свои браузерные расширения</h3>
+        <p>Проверка контрагента по ИНН и проверка машиночитаемых доверенностей в пару кликов.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="programs" aria-labelledby="programs-h">
+    <div class="sec-head">
+      <p class="eyebrow">Программы для команд</p>
+      <h2 id="programs-h">Шесть программ под разные задачи</h2>
+      <p>Каждую адаптирую под вашу команду: изучаю, чем вы занимаетесь, и показываю примеры на ваших процессах.</p>
+    </div>
+    <div class="programs">
+      <article class="prog">
+        <span class="tag">Экспресс-вебинар · 60 минут</span>
+        <h3>Генеративный ИИ за 60 минут: изображения, музыка, видео</h3>
+        <p>Ключевые инструменты для визуала, музыки и видео. Живые генерации в прямом эфире.</p>
+      </article>
+      <article class="prog">
+        <span class="tag">Для любых ролей</span>
+        <h3>LLM в работе — сценарии и промпты для разных ролей</h3>
+        <p>Аналитика, маркетинг, продакт-менеджмент, HR, управление. Кейсы и готовые шаблоны.</p>
+      </article>
+      <article class="prog">
+        <span class="tag">Бэк-офис</span>
+        <h3>LLM-помощник операционного сотрудника</h3>
+        <p>Сверки реестров, работа с таблицами и Excel, деловая переписка. Промпты для применения сразу.</p>
+      </article>
+      <article class="prog">
+        <span class="tag">Мидл-офис</span>
+        <h3>LLM-помощник мидл-офиса</h3>
+        <p>Подготовка документов, проверка договоров, PDF/Word/Excel, Госуслуги, ФНП, электронная подпись.</p>
+      </article>
+      <article class="prog">
+        <span class="tag">Для руководителей</span>
+        <h3>LLM в работе операционного департамента банка</h3>
+        <p>Планирование, контроль, систематизация. Документы, чек-листы и отчёты с учётом требований безопасности.</p>
+      </article>
+      <article class="prog">
+        <span class="tag">Критическое мышление</span>
+        <h3>Доверяй, но проверяй</h3>
+        <p>Как не попасться на красивый, но неверный ответ ИИ. Для тех, кто уже пользуется и кто присматривается.</p>
+        <span class="score">81 отзыв · 9,57 из 10</span>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="formats-h">
+    <div class="sec-head">
+      <p class="eyebrow">Форматы</p>
+      <h2 id="formats-h">С чем можно прийти</h2>
+    </div>
+    <div class="formats">
+      <article class="fmt">
+        <h3>Консультация</h3>
+        <p>Одна встреча под конкретный запрос. Уходите с решением и материалами.</p>
+        <ul><li>с чего начать и какой инструмент взять</li><li>разбор вашей рабочей задачи</li><li>промпты под вашу роль</li></ul>
+      </article>
+      <article class="fmt">
+        <h3>Менторинг</h3>
+        <p>Несколько встреч, чтобы довести ваш проект до результата.</p>
+        <ul><li>ИИ-агенты и RAG-боты</li><li>автоматизация рутины</li><li>визуал и презентации</li></ul>
+      </article>
+      <article class="fmt">
+        <h3>Программа для команды</h3>
+        <p>Вебинар или практикум на группу — от 10 до 300 человек.</p>
+        <ul><li>примеры под каждое подразделение</li><li>анкета до и обратная связь после</li><li>практическое задание по итогам</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="talks" aria-labelledby="talks-h">
+    <div class="sec-head">
+      <p class="eyebrow">Выступления · 2026</p>
+      <h2 id="talks-h">Где я выступал</h2>
+    </div>
+    <ul class="timeline">
+      <li><span class="d">11–12 апреля</span><div class="t"><h3>Фестиваль «Научная Вселенная первых», Пермь</h3><span>Лекция об ИИ в учёбе для одарённых школьников со всей России</span></div><span class="pill ext">вне Ozon</span></li>
+      <li><span class="d">май</span><div class="t"><h3>Вебинар для операционного департамента банка</h3><span>50 участников, 14 руководителей, 9 направлений — примеры под каждое подразделение</span></div><span class="pill int">Ozon</span></li>
+      <li><span class="d">6–7 июля</span><div class="t"><h3>Практикум «От идеи до готового визуала» для Ozon fresh</h3><span>Около 300 участников, по итогам — 130 работ от 126 человек</span></div><span class="pill int">Ozon</span></li>
+      <li><span class="d">8 июля</span><div class="t"><h3>Летняя школа программирования НИУ ВШЭ, Москва</h3><span>Мастер-класс для старшеклассников: как ловить ошибки ИИ</span></div><span class="pill ext">вне Ozon</span></li>
+      <li><span class="d">24 июля</span><div class="t"><h3>Team Talk для дирекции управления цепочками поставок</h3><span>Около 250 человек офлайн и онлайн</span></div><span class="pill int">Ozon</span></li>
+      <li><span class="d">28 октября</span><div class="t"><h3>«Лаборатория идей» для детей сотрудников</h3><span>Оживляем детские изобретения с помощью ИИ</span></div><span class="pill int">Ozon</span></li>
+    </ul>
+  </section>
+
+  <section id="reviews" aria-labelledby="reviews-h">
+    <div class="sec-head">
+      <p class="eyebrow">Отзывы · Expertplace</p>
+      <h2 id="reviews-h">Что говорят коллеги</h2>
+    </div>
+    <div class="quotes">
+      <figure class="q big">
+        <blockquote>Отошёл от стандартной схемы и глубоко погрузился в мои конкретные задачи. Теперь у меня есть не только понимание основ, но и чёткий план действий для моих проектов</blockquote>
+        <figcaption><b>Сергей</b> · руководитель группы</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Помог с реализацией очень важного проекта. Результат превзошёл ожидания. Женя — профи</blockquote>
+        <figcaption><b>Юлия</b> · старший тренер по продажам</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Внимательно изучил все направления департамента и представил наглядные примеры для каждого подразделения</blockquote>
+        <figcaption><b>Светлана</b> · руководитель отдела</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Обратилась с конкретной задачей — результат превзошёл ожидания</blockquote>
+        <figcaption><b>Светлана</b> · ведущий бухгалтер</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>Вебинар помог структурировать знания по LLM</blockquote>
+        <figcaption><b>Олег</b> · старший менеджер по продукту</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="bio-h">
+    <div class="sec-head">
+      <p class="eyebrow">Бэкграунд</p>
+      <h2 id="bio-h">Почему со мной легко</h2>
+    </div>
+    <p class="bio-note">Я учитель по образованию и человек сцены по жизни. Объясняю сложное простым языком и держу внимание аудитории от первой до последней минуты.</p>
+    <div class="bio">
+      <div><span class="yrs">2017</span><h3>Педагог</h3><p>Бакалавр педагогического образования, информатика и физика. Вёл физику в 10–11 классах.</p></div>
+      <div><span class="yrs">с 2009</span><h3>Сцена</h3><p>Гран-при «Больших танцев», участник «Танцев» на ТНТ, преподавал танцы.</p></div>
+      <div><span class="yrs">2017–2020</span><h3>Режиссёр трансляций</h3><p>Своё ИП: баскетбол, хоккей, регби-7, волейбол, кёрлинг, Кубок России.</p></div>
+      <div><span class="yrs">2019–2023</span><h3>Кухня</h3><p>От повара до су-шефа и технолога. Отсюда привычка строить процессы, которые не ломаются под нагрузкой.</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div>
+      <h2 id="contact-h">Записаться на консультацию</h2>
+      <p class="sub">Встречи онлайн. Опишите задачу в заявке — приду с идеями под неё.</p>
+    </div>
+    <ol class="steps">
+      <li><span>Откройте Ozon Универ и перейдите в раздел Expertplace.</span></li>
+      <li><div>Найдите меня в поиске экспертов:
+        <div class="copy-row"><code id="name-code">Тюрин Евгений</code><button class="copy-btn" id="copy-name" type="button">Скопировать</button></div></div></li>
+      <li><span>Выберите формат — консультация, менторинг или программа — и опишите запрос.</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Евгений Тюрин · внутренний тренер Ozon Универ</span>
+    <span>Обновлено: ноябрь 2026</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('copy-name'),c=document.getElementById('name-code');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    var done=function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Скопировать'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(c);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Выделено — нажмите Ctrl+C'};
+    try{navigator.clipboard.writeText(c.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
