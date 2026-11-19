@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Verify site
+    name: ${{ github.event_name == 'pull_request' && 'Verify site' || 'Prepare site for deployment' }}
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
