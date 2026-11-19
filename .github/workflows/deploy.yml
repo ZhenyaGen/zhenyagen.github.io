@@ -1,42 +1,82 @@
-name: Deploy site to GitHub Pages
+name: Verify and deploy GitHub Pages
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches:
-      - main
-      - master
-      - 'claude/**'
+    branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: {}
 
-# Параллельные деплои не нужны: всегда публикуем последнюю версию.
 concurrency:
-  group: pages
+  group: pages-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  verify:
+    name: Verify site
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Prepare public files
+        shell: bash
+        run: |
+          files=(
+            .nojekyll
+            README.md
+            index.html
+            en/index.html
+            ozon/index.html
+            ZhenyaGen/index.html
+            basket-monitor-privacy.html
+            checkinn-privacy.html
+            doverka-privacy.html
+            pervichka/privacy.html
+            podpisant/privacy.html
+            privacy-policy.html
+            img/avatar-square.jpg
+            img/hero-award.jpg
+            img/moose-card-back.jpg
+            img/moose-card.jpg
+          )
+          public_dir="$RUNNER_TEMP/pages"
+          mkdir -p "$public_dir"
+          git archive HEAD -- "${files[@]}" | tar -xf - -C "$public_dir"
+          for file in "${files[@]}"; do
+            path="$public_dir/$file"
+            if [[ ! -f "$path" || -L "$path" || ( "$file" != .nojekyll && ! -s "$path" ) ]]; then
+              printf 'Missing or invalid public file: %s\n' "$file" >&2
+              exit 1
+            fi
+          done
+          if [[ -n "$(find "$public_dir" -type l -print -quit)" ]]; then
+            printf 'Symbolic links are forbidden in the Pages artifact.\n' >&2
+            exit 1
+          fi
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: ${{ runner.temp }}/pages
+
+  deploy:
+    name: Deploy GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-
-      # enablement: включает Pages в репозитории автоматически,
-      # если это ещё не сделано вручную в Settings → Pages.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      # Сайт статический: публикуем содержимое репозитория как есть.
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
